@@ -14,7 +14,7 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client =>
   const db = client.db('capstone');
   const quotesCollections = db.collection('ticket');
   console.log('connected to database');
-  
+
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 //   Add all the CRUD here!
