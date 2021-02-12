@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config(); 
-// getting connection string from .env
+// connection string from .env
 connectionString = process.env.CONNECTION_STRING;
 // port # from .env
 port = process.env.PORT;
@@ -17,7 +17,9 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client =>
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-//   Add all the CRUD here!
+
+
+// Add all the CRUD here!
 
   // Get Method
   app.get('/', (req, res) =>{
