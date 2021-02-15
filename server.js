@@ -19,6 +19,7 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client =>
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(express.static('public'))
 
 
 // Add all the CRUD here!
@@ -27,7 +28,7 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client =>
   app.get('/', (req, res) =>{
       data = db.collection('tickets').find().toArray();
       data.then(result => res.send(result));
-  })
+  }).catch(error => console.error(error))
 
 
   // localhost
