@@ -5,10 +5,8 @@ const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 // getting credential to connect to db
 username = process.env.USER
-console.log(username)
 password = process.env.PASSWORD
 connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
-console.log(connectionString);
 // port # from .env
 port = process.env.PORT;
 
