@@ -27,9 +27,18 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client =>
 
   // Get Method
   app.get('/', (req, res) =>{
-      data = db.collection('tickets').find().toArray();
+      data = db.collection('ticket').find().toArray();
       data.then(result => res.send(result));
   })
+
+// Post Method
+app.post('/ticket', (req, res) => {
+  quotesCollection.insertOne(req.body)
+    .then(result => {
+      res.redirect('/')
+    })
+    .catch(error => console.error(error))
+})
 
 
   // localhost
