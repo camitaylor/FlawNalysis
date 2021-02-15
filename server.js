@@ -4,9 +4,9 @@ const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 // getting credential to connect to db
-username = process.env.USER
+username = process.env.USERNAME
 password = process.env.PASSWORD
-connectionString = `mongodb+srv://cami_taylor:abcd1234@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
+connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
 // port # from .env
 port = process.env.PORT;
 
@@ -14,7 +14,7 @@ port = process.env.PORT;
 MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client => {
 
   const db = client.db('capstone');
-  const quotesCollections = db.collection('ticket');
+  const ticketsCollections = db.collection('tickets');
   console.log('connected to database');
 
   app.use(bodyParser.json());
@@ -27,7 +27,49 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client =>
   app.get('/', (req, res) =>{
       data = db.collection('tickets').find().toArray();
       data.then(result => res.send(result));
-  })
+  }) 
+
+
+  // Post Method
+
+app.post('/tickets', (req, res) => {
+  data = db.collection('tickets').insertOne(req.body);
+  data.then(result => res.redirect('/'));
+})
+
+//Put Method
+/*app.put('/tickets', (req, res) => {
+    ticketsCollection.findOneAndUpdate(
+        {id: ''},
+        {
+            $set: {
+                problem: req.body.problem,
+                status: req.body.status
+            }
+        },
+        {
+            upsert: true
+        }
+    )
+      .then(result => {
+        res.json('No ticket to update')
+       })
+      .catch(error => console.error(error))
+})  
+
+//Delete Method
+app.delete('/tickets', (req, res) => {
+    ticketsCollection.deleteOne(
+      { problem: req.body.problem }
+    )
+      .then(result => {
+        if (result.deletedCount === 0) {
+            return res.json('No ticket to delete')
+          }
+          res.json(`Ticket deleted`)
+        })
+        .catch(error => console.error(error))
+}) */
 
 
   // localhost
