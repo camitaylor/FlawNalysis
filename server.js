@@ -6,7 +6,7 @@ require('dotenv').config();
 // getting credential to connect to db
 username = process.env.USER
 password = process.env.PASSWORD
-connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
+connectionString = `mongodb+srv://cami_taylor:abcd1234@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
 // port # from .env
 port = process.env.PORT;
 
