@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 // getting credential to connect to db
-username = process.env.USER
+username = process.env.USERNAME
 console.log(username)
 password = process.env.PASSWORD
 connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
