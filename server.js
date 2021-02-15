@@ -11,7 +11,7 @@ connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb
 port = process.env.PORT;
 
 // connection to mongoDB
-MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client => {
+MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client => {
 
   const db = client.db('capstone');
   const ticketsCollections = db.collection('tickets');
@@ -21,60 +21,75 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client =>
   app.use(bodyParser.urlencoded({ extended: true }));
 
 
-// Add all the CRUD here!
+  // Add all the CRUD here!
 
-  // Get Method
-  app.get('/', (req, res) =>{
-      data = db.collection('tickets').find().toArray();
-      data.then(result => res.send(result));
-  }) 
+  // Get Methods
+  app.get('/', (req, res) => {
+    data = db.collection('tickets').find().toArray();
+    data.then(result => res.send(result))
+      .catch(error => console.error(error));
+  })
 
+  app.get('/tickets', (req, res) => {
+    data = db.collection('tickets').find().toArray();
+    data.then(result => res.send(result))
+      .catch(error => console.error(error));
+  })
 
   // Post Method
 
-app.post('/tickets', (req, res) => {
-  data = db.collection('tickets').insertOne(req.body);
-  data.then(result => res.redirect('/'));
-})
+  app.post('/tickets', (req, res) => {
+    data = db.collection('tickets').insertOne(req.body);
+    data.then(result => res.redirect('/'))
+      .catch(error => console.error(error));
+  })
 
-//Put Method
-/*app.put('/tickets', (req, res) => {
-    ticketsCollection.findOneAndUpdate(
-        {id: ''},
-        {
-            $set: {
-                problem: req.body.problem,
-                status: req.body.status
-            }
-        },
-        {
-            upsert: true
+  //Put Method
+
+  app.put('/tickets/:id', (req, res) => {
+    data = db.collection('tickets').findOneAndUpdate(
+      { id: req.body.id },
+      {
+        $set: {
+          assignedTo: req.body.assignedTo,
+          ticketDetails: req.body.ticketDetails
         }
+      },
+      {
+        upsert: true
+      }
     )
-      .then(result => {
-        res.json('No ticket to update')
-       })
+    data.then(result => {
+      res.json('Ticket updated')
+    })
       .catch(error => console.error(error))
-})  
+  })
 
-//Delete Method
-app.delete('/tickets', (req, res) => {
-    ticketsCollection.deleteOne(
-      { problem: req.body.problem }
+  //Delete Method
+  app.delete('/tickets/:id', (req, res) => {
+    data = db.collection('tickets').deleteOne(
+      {
+        id: req.body.id,
+        name: req.body.name,
+        type: req.body.type,
+        requestedDate: req.body.requestedDate,
+        assignedTo: req.body.assignedTo,
+        ticketDetails: req.body.ticketDetails
+      }
     )
-      .then(result => {
-        if (result.deletedCount === 0) {
-            return res.json('No ticket to delete')
-          }
-          res.json(`Ticket deleted`)
-        })
-        .catch(error => console.error(error))
-}) */
+    data.then(result => {
+      if (result.deletedCount === 0) {
+        return res.json('No ticket to delete')
+      }
+      res.json(`Ticket deleted`)
+    })
+      .catch(error => console.error(error))
+  })
 
 
   // localhost
-  app.listen(port, function() {
+  app.listen(port, function () {
     console.log(`listening on: http://localhost:${port}`)
   })
 })
-.catch(error => console.error(error))
+  .catch(error => console.error(error))
