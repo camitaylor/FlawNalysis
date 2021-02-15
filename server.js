@@ -16,7 +16,7 @@ port = process.env.PORT;
 MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client => {
 
   const db = client.db('capstone');
-  const quotesCollections = db.collection('ticket');
+  const quotesCollections = db.collection('tickets');
   console.log('connected to database');
 
   app.use(bodyParser.json());
@@ -26,25 +26,40 @@ MongoClient.connect(connectionString,{useUnifiedTopology: true}) .then(client =>
 // Add all the CRUD here!
 
   // Get Method
-  app.get('/', (req, res) =>{
-      data = db.collection('ticket').find().toArray();
-      data.then(result => res.send(result));
+  app.get('/', (req, res) => {
+      data = db.collection('tickets').find().toArray();
+      data.then(result => res.send(result))
+      .catch(error => console.error(error));
   })
-
-// Post Method
-app.post('/ticket', (req, res) => {
-  quotesCollection.insertOne(req.body)
-    .then(result => {
-      res.redirect('/')
-    })
-    .catch(error => console.error(error))
+        
+  app.get('/tickets', (req, res) =>{
+    data = db.collection('tickets').find().toArray();
+    data.then(result => res.send(result))
+    .catch(error => console.error(error));
+  })
+      
+      // Post Method
+app.post('/tickets', (req, res) => {
+  data = db.collection('tickets').insertOne(req.body);
+  data.then(result => res.redirect('/'))
+  .catch(error => console.error(error));
 })
 
+app.put('/tickets/:id', (req, res) => {
+  data = db.collection('tickets').findOneAndUpdate(req.body);
+  data.then(result => res.redirect('/'))
+  .catch(error => console.error(error));
+})
+
+app.delete('/tickets/:id', (req, res) => {
+  data = db.collection('tickets').insertOne(req.body);
+  data.then(result => res.redirect('/'))
+  .catch(error => console.error(error));
+})
 
   // localhost
   app.listen(port, function() {
     console.log(`listening on: http://localhost:${port}`)
   })
 })
-.catch(error => console.error(error))
- 
+  .catch(error => console.error(error))
