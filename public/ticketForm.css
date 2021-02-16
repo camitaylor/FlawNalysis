@@ -48,3 +48,8 @@ select option{
   display: block !important;
   width:10rem;
 }
+.card {
+  display: block !important;
+  position: relative;
+  margin-top: 8rem !important;
+}
