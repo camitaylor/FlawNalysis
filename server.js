@@ -47,22 +47,40 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
   //Put Method
 
   app.put('/tickets/:id', (req, res) => {
-    data = db.collection('tickets').findOneAndUpdate(
-      { id: req.body.id },
-      {
-        $set: {
-          assignedTo: req.body.assignedTo,
-          ticketDetails: req.body.ticketDetails
+    if (req.body.ticketDetails) {
+      data = db.collection('tickets').findOneAndUpdate(
+        { id: req.body.id },
+        {
+          $set: {
+            assignedTo: req.body.assignedTo,
+            ticketDetails: req.body.ticketDetails
+          }
+        },
+        {
+          upsert: true
         }
-      },
-      {
-        upsert: true
-      }
-    )
-    data.then(result => {
-      res.json('Ticket updated')
-    })
-      .catch(error => console.error(error))
+      )
+      data.then(result => {
+        res.json('Ticket updated')
+      })
+        .catch(error => console.error(error))
+    } else {
+      data = db.collection('tickets').findOneAndUpdate(
+        { id: req.body.id },
+        {
+          $set: {
+            assignedTo: req.body.assignedTo,
+          }
+        },
+        {
+          upsert: true
+        }
+      )
+      data.then(result => {
+        res.json('Ticket updated')
+      })
+        .catch(error => console.error(error))
+    }
   })
 
   //Delete Method
