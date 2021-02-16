@@ -1,1 +1,2 @@
-const url = 'http://localhost:3030'
+fetch('/tickets')  
+.then(response => console.log(response.body))
