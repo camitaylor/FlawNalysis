@@ -11,10 +11,6 @@ app.use(bodyParser.json())
 // move routing to an external file to keep things organized
 const tickets = require('./tickets.js')
 app.use('/tickets', tickets)
-app.get('/', (req, res) =>{
-
-})
-
 // create a webserver so we can listen for requests
 
   // localhost

@@ -19,7 +19,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="ticketForm.css" />
   </head>
   <body>
     <div class="container">
@@ -31,7 +31,7 @@
           <div class="card mt-2 mx-auto p-4 bg-info">
             <div class="card-body bg-info">
               <div class="container">
-                <form id="contact-form" role="form">
+                <form id="contact-form" role="form" onsubmit= "submitForm()">
                   <div class="controls">
                     <div class="row">
                       <div class="col-md-6">
@@ -88,14 +88,13 @@
                             name="need"
                             class="form-control"
                             required="required"
-                            data-error="Please specify your need."
-                          >
+                            data-error="Please specify your need.">
                             <option value="" selected disabled>
                               --Select Your Issue--
                             </option>
-                            <option>Request Invoice for order</option>
-                            <option>Request order status</option>
-                            <option>Haven't received cashback yet</option>
+                            <option>Email</option>
+                            <option>Phone</option>
+                            <option>Computer</option>
                             <option>Other</option>
                           </select>
                         </div>
@@ -104,7 +103,7 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="form_message">Message *</label>
+                          <label for="form_message">Ticket Details *</label>
                           <textarea
                             id="form_message"
                             name="message"
@@ -116,12 +115,9 @@
                           ></textarea>
                         </div>
                       </div>
-                      <div class="col-md-12">
-                        <input
-                          type="submit"
-                          class="btn btn-success btn-send pt-2 btn-block"
-                          value="Send Message"
-                        />
+                      <div class="col-md-12" id = "buttonGroup">
+                        <button class = "btn btn-primary" type = "button" onclick = "reload()">Cancel</button>
+                        <button class = "btn btn-primary" type = "submit">Submit Ticket</button>
                       </div>
                     </div>
                   </div>
@@ -134,5 +130,6 @@
         <!-- /.row-->
       </div>
     </div>
+    <script src = "ticketForm.js"></script>
   </body>
 </html>
