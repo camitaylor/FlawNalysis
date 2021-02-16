@@ -1,7 +1,60 @@
 *{
-    background-color: rgb(27, 27, 27);
     color:white;
 }
+body{
+    background-color:#262727;
+}
+.container{
+    margin: 2rem auto;
+    background-color:#262727;
+}
+#logo{
+    height:5rem;
+    width:auto;
+    padding:1rem;
+}
+#topBar{
+    display:fixed;
+    position:absolute;
+    background-color:#000000;
+    width:100%;
+    left:0;
+    top:0;
+    margin:auto;
+}
+.userInfo{
+    display:inline-block !important;
+    position:absolute;
+    padding:1rem;
+    right:0;
+    line-height:2.5rem;
+}
+.userInfo a{
+    text-decoration: none;
+    color:white;
+}
+
 #addTicket{
 font-size: 2rem;
+}
+.ticketDisplay{
+    margin-top:8rem;
+    width:100%;
+}
+#tables{
+    display:flex;
+    margin:auto;
+    justify-content: space-between !important;
+}
+#label-button{
+    display:flex;
+    justify-content: space-between !important;
+    width:100%;
+    margin: 2rem auto;
+}
+
+.card{
+    display:inline-block;
+    width:100%!important;
+    background:#000000;
 }
