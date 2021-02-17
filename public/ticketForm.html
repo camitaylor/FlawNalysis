@@ -35,7 +35,7 @@
           <div class="card my-auto mx-auto p-4 bg-info" id ="vertical-center">
             <div class="card-body bg-info">
               <div class="container bg-info">
-                <form id="contact-form" role="form" onsubmit= "submitForm()">
+                <form id="contact-form" role="form" onsubmit="submitForm(); return false;">
                   <div class="controls bg-info">
                     <div class="row">
                       <div class="col-md-6">
@@ -121,7 +121,7 @@
                       </div>
                       <div class="col-md-12" id = "buttonGroup">
                         <button class = "btn btn-primary" type = "button" onclick = "reload()">Cancel</button>
-                        <button class = "btn btn-primary" type = "submit">Submit Ticket</button>
+                        <button class = "btn btn-primary" type = "submit" >Submit Ticket</button>
                       </div>
                     </div>
                   </div>
