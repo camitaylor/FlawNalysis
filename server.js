@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express(); //create application from express
+const mongoose = require('mongoose'); //get mongoose from modules
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
@@ -11,7 +12,7 @@ connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb
 port = process.env.PORT;
 
 //add model Ticket
-//const Ticket = require('./models/ticket)
+const Ticket = require('./models/ticket')
 
 
 // connection to mongoDB
