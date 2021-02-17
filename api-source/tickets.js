@@ -30,23 +30,17 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
       .catch(error => console.error(error));
   })
 
-  router.get('/tickets', (req, res) => {
-    data = db.collection('tickets').find().toArray();
-    data.then(result => res.send(result))
-      .catch(error => console.error(error));
-  })
-
   // Post Method
 
-  router.post('/tickets', (req, res) => {
+  router.post('/', (req, res) => {
     data = db.collection('tickets').insertOne(req.body);
-    data.then(result => res.redirect('/'))
+    data.then(result => res.redirect(301,'/'))
       .catch(error => console.error(error));
   })
 
   //Put Method
 
-  router.put('/tickets/:id', (req, res) => {
+  router.put('/:id', (req, res) => {
     data = db.collection('tickets').findOneAndUpdate(
       { id: req.body.id },
       {
@@ -66,7 +60,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
   })
 
   //Delete Method
-  router.delete('/tickets/:id', (req, res) => {
+  router.delete('/:id', (req, res) => {
     data = db.collection('tickets').deleteOne(
       {
         id: req.body.id,

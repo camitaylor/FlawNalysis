@@ -4,31 +4,32 @@ function reload(){
 }
 
 function submitForm(){
-    let firstName = document.getElementById("form_name").nodeValue;
-    let lastName = document.getElementById("form_lastname").nodeValue;
-    let email = document.getElementById("form_email").nodeValue;
-    let type = document.getElementById("form_need").nodeValue;
-    let ticketDetails = document.getElementById("form_message").nodeValue;
-    let data = {
-        name: `${firstName} ${lastName}`,
-        email: email,
-        type: type,
-        ticketDetails: ticketDetails,
-        assignedTo: 'pending'
+  let firstName = document.getElementById("form_name").value;
+  let lastName = document.getElementById("form_lastname").value;
+  let email = document.getElementById("form_email").value;
+  let type = document.getElementById("form_need").value;
+  let ticketDetails = document.getElementById("form_message").value;
+  
+  let date = `${new Date().getMonth()+1}/${new Date().getDate()}/${new Date().getFullYear()}`
+
+  let data = {
+      name: `${firstName} ${lastName}`,
+      email: email,
+      type: type,
+      ticketDetails: ticketDetails,
+      assignedTo: 'pending',
+      requestedDate: date
+  }
+  console.log(data)
+  fetch('/tickets', {
+      method:'POST',
+      redirect: 'follow',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  })  
+  .then(res => {
+    if (res.redirected) {
+      window.location.href = res.url;
     }
-    fetch('/tickets', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(result => {
-    console.log('Success:', result);
-    reload()
-    })
-    .catch((error) => {
-    console.error('Error:', error);
-    });
+  })
 }
