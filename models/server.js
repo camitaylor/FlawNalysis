@@ -12,7 +12,7 @@ connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb
 port = process.env.PORT;
 
 //add model Ticket
-const Ticket = require('./ticket')
+const Ticket = require('./models/ticket')
 
 
 // connection to mongoDB
