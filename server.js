@@ -102,35 +102,6 @@ app.delete('/tickets/:id', (req, res) => {
     .catch(error => console.error(error))
   })
 
-
-
-
-// app.delete('/quotes', (req, res) => {
-//   quotesCollection.deleteOne(
-//     { name: req.body.name }
-//   )
-//     .then(result => {
-//       if (result.deletedCount === 0) {
-//         return res.json('No quote to delete')
-//       }
-//       res.json('Deleted Darth Vadar\'s quote')
-//     })
-//     .catch(error => console.error(error))
-// })
-
-
-    // app.put('/tickets/:id', (req, res) => {
-//   data = db.collection('tickets').findOneAndUpdate(req.body);
-//   data.then(result => res.redirect('/'))
-//   .catch(error => console.error(error));
-// })
-
-// app.delete('/tickets/:id', (req, res) => {
-//   data = db.collection('tickets').insertOne(req.body);
-//   data.then(result => res.redirect('/'))
-//   .catch(error => console.error(error));
-// })
-
   // localhost
   app.listen(port, function() {
     console.log(`listening on: http://localhost:${port}`)
