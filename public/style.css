@@ -1,83 +1,141 @@
-* {
-  background-color: rgb(27, 27, 27);
-  color: white;
+*{
+    color:white;
 }
-#addTicket {
-  font-size: 2rem;
+body{
+    background-color:#262727;
 }
-*/
-
-/* Bordered form */
-form {
-  border: 0px solid #f1f1f1;
+.container{
+    margin: 2rem auto;
+    background-color:#262727;
 }
-h2 {
-  text-align: center;
+#logo{
+    height: 3.5rem;
+    width:auto;
 }
-/* Full-width inputs */
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+#addTicket{
+font-size: 2rem;
 }
-
-/* Set a style for all buttons */
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+.ticketDisplay{
+    margin-top:2rem;
+    width:100%;
+}
+#tables{
+    display:flex;
+    margin:auto;
+    justify-content: space-between !important;
 }
 
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
+.table-dark {
+    --bs-table-bg: #000000;
+    --bs-table-striped-bg: #212529;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #373b3e;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #323539;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: #373b3e;
 }
-
-/* Extra style for the cancel button (red) */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+.table-container {
+    height: 70vh;
 }
-
-/* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
-}
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
+table {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
     width: 100%;
-  }
+}
+table thead {
+    /* head takes the height it requires, 
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+}
+table tbody {
+    display: block;
+    overflow-y: scroll;
+}
+thead, tbody, tr {
+    width: 100%;
+}
+table thead, table tbody tr {
+    display: table;
+    table-layout: fixed;
+}
+.name{
+    width:15%;
+}
+.details{
+    width:40%;
+}
+.Assigned{
+    width:15%;
+}
+.date{
+    width:10%
+}
+.editButton{
+    width:5%;
+}
+#label-button{
+    display:flex;
+    justify-content: space-between !important;
+    width:100%;
+    margin: 2rem auto;
+}
+
+.card{
+    display:inline-block;
+    width:100%!important;
+    background:#000000;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #b1b1b1; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(75, 75, 75); 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(36, 35, 35); 
+}
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+}
+.navbar{
+    background-color: black !important;
+}
+
+.navbar-nav {
+    display: inline-block;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+@media (max-width: 768px){
+    .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+        display: block;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
 }
