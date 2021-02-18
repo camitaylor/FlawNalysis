@@ -9,42 +9,72 @@ body{
     background-color:#262727;
 }
 #logo{
-    height:5rem;
+    height: 3.5rem;
     width:auto;
-    padding:1rem;
 }
-#topBar{
-    display:fixed;
-    position:absolute;
-    background-color:#000000;
-    width:100%;
-    left:0;
-    top:0;
-    margin:auto;
-}
-.userInfo{
-    display:inline-block !important;
-    position:absolute;
-    padding:1rem;
-    right:0;
-    line-height:2.5rem;
-}
-.userInfo a{
-    text-decoration: none;
-    color:white;
-}
-
 #addTicket{
 font-size: 2rem;
 }
 .ticketDisplay{
-    margin-top:8rem;
+    margin-top:2rem;
     width:100%;
 }
 #tables{
     display:flex;
     margin:auto;
     justify-content: space-between !important;
+}
+
+.table-dark {
+    --bs-table-bg: #000000;
+    --bs-table-striped-bg: #212529;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #373b3e;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #323539;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: #373b3e;
+}
+.table-container {
+    height: 70vh;
+}
+table {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+}
+table thead {
+    /* head takes the height it requires, 
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+}
+table tbody {
+    display: block;
+    overflow-y: scroll;
+}
+thead, tbody, tr {
+    width: 100%;
+}
+table thead, table tbody tr {
+    display: table;
+    table-layout: fixed;
+}
+.name{
+    width:15%;
+}
+.details{
+    width:40%;
+}
+.Assigned{
+    width:15%;
+}
+.date{
+    width:10%
+}
+.editButton{
+    width:5%;
 }
 #label-button{
     display:flex;
@@ -57,4 +87,55 @@ font-size: 2rem;
     display:inline-block;
     width:100%!important;
     background:#000000;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #b1b1b1; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(75, 75, 75); 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(36, 35, 35); 
+}
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+}
+.navbar{
+    background-color: black !important;
+}
+
+.navbar-nav {
+    display: inline-block;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+@media (max-width: 768px){
+    .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+        display: block;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
 }

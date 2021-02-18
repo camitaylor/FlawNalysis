@@ -1,0 +1,48 @@
+*{
+    font-size: 14px;
+}
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+}
+.navbar{
+    background-color: black !important;
+    height: 8rem !important;
+    font-size: 1.5rem !important;
+}
+#logo{
+    height: 5rem;
+    width:auto;
+}
+.navbar-nav, .navbar-nav a {
+    display: inline-block;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    text-decoration: none;
+}
+@media (max-width: 768px){
+    .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+        display: block;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+}
+
+input, select, textarea{
+    font-size: 14px!important;
+}
+.btn-primary{
+    font-size: 14px!important;
+    width: 12rem!important;
+}

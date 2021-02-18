@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlawNalysis</title>
     <link rel="icon" href="img/logoOnly.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#"><img id = "logo" src="img/logoLeft.png" alt="logo"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <div class="container">
-        <div id="topBar">
-            <img id = "logo" src="img/logoLeft.png" alt="logo">
-            <div class="userInfo">
-                <a href="" class="navMenu">Lok Shankar</a>
-            </div>
-        </div>
         <div class="ticketDisplay" >
             <div id="label-button">
                 <h2>Tickets</h2>
-                <a href="ticketForm.html" class="add btn btn-primary mb-3">Add Ticket</a>
+                <a href="ticketForm.html" class="add btn btn-primary">Add Ticket</a>
             </div>
             <div id="tables">
                 <div class="card" style="width: 25rem;">
                     <div class="card-body">
                       <h5 class="card-title"></h5>
-                      <div class="table-responsive">
-                        <table class="table">
+                      <div class = "table-container">
+                        <table class="table table-dark table-striped">
                           <thead>
                             <tr>
-                              <th>User</th>
-                              <th>Ticket Details</th>
-                              <th>Assigned To</th>
-                              <th>Date</th>
-                              <th></th>
+                              <th class = "name" >User</th>
+                              <th class = "details">Ticket Details</th>
+                              <th class = "Assigned">Assigned To</th>
+                              <th class = "date">Date</th>
+                              <th class = "editButton"></th>
+                              <th class = "editButton"></th>
                             </tr>
                           </thead>
                           <tbody id = "tableBody">
