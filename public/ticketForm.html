@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlawNalysis</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -19,20 +21,42 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="ticketForm.css" />
+    
   </head>
   <body>
-    <div class="container">
-      <div class="text-center mt-5">
-        <h1 class="title">FlawNalysis</h1>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#"><img id = "logo" src="img/logoLeft.png" alt="logo"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
       </div>
+    </nav>
+    <div class="container">
       <div class="row">
         <div class="col-lg-7 mx-auto">
-          <div class="card mt-2 mx-auto p-4 bg-info">
+          <div class="card my-auto mx-auto p-4 bg-info" id ="vertical-center">
             <div class="card-body bg-info">
-              <div class="container">
-                <form id="contact-form" role="form">
-                  <div class="controls">
+              <div class="container bg-info">
+                <form id="contact-form" role="form" onsubmit="submitForm(); return false;">
+                  <div class="controls bg-info">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -42,7 +66,7 @@
                             type="text"
                             name="name"
                             class="form-control"
-                            placeholder="Please enter your firstname *"
+                            placeholder="John"
                             required="required"
                             data-error="Firstname is required."
                           />
@@ -56,7 +80,7 @@
                             type="text"
                             name="surname"
                             class="form-control"
-                            placeholder="Please enter your lastname *"
+                            placeholder="Smith"
                             required="required"
                             data-error="Lastname is required."
                           />
@@ -72,7 +96,7 @@
                             type="email"
                             name="email"
                             class="form-control"
-                            placeholder="Please enter your email *"
+                            placeholder="johnsmith@exapmle.com"
                             required="required"
                             data-error="Valid email is required."
                           />
@@ -88,14 +112,13 @@
                             name="need"
                             class="form-control"
                             required="required"
-                            data-error="Please specify your need."
-                          >
+                            data-error="Please specify your need.">
                             <option value="" selected disabled>
                               --Select Your Issue--
                             </option>
-                            <!-- <option>Request Invoice for order</option> -->
-                            <option>Request Service Ticket</option>
-                            <!-- <option>Haven't received cashback yet</option> -->
+                            <option>Email</option>
+                            <option>Phone</option>
+                            <option>Computer</option>
                             <option>Other</option>
                           </select>
                         </div>
@@ -104,7 +127,7 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="form_message">Message *</label>
+                          <label for="form_message">Ticket Details *</label>
                           <textarea
                             id="form_message"
                             name="message"
@@ -116,12 +139,9 @@
                           ></textarea>
                         </div>
                       </div>
-                      <div class="col-md-12">
-                        <input
-                          type="submit"
-                          class="btn btn-success btn-send pt-2 btn-block"
-                          value="Send Message"
-                        />
+                      <div class="col-md-12" id = "buttonGroup">
+                        <button class = "btn btn-primary" type = "button" onclick = "reload()">Cancel</button>
+                        <button class = "btn btn-primary" type = "submit" >Submit Ticket</button>
                       </div>
                     </div>
                   </div>
@@ -134,5 +154,6 @@
         <!-- /.row-->
       </div>
     </div>
+    <script src = "ticketForm.js"></script>
   </body>
 </html>
