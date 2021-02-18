@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlawNalysis</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="ticketForm.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center mt-5">
+        <h1 class="title">FlawNalysis</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <div class="card mt-2 mx-auto p-4 bg-info">
+            <div class="card-body bg-info">
+              <div class="container">
+                <form id="contact-form" role="form">
+                  <div class="controls">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_name">Firstname *</label>
+                          <input
+                            id="form_name"
+                            type="text"
+                            name="name"
+                            class="form-control"
+                            placeholder="Please enter your firstname *"
+                            required="required"
+                            data-error="Firstname is required."
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_lastname">Lastname *</label>
+                          <input
+                            id="form_lastname"
+                            type="text"
+                            name="surname"
+                            class="form-control"
+                            placeholder="Please enter your lastname *"
+                            required="required"
+                            data-error="Lastname is required."
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_email">Email *</label>
+                          <input
+                            id="form_email"
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Please enter your email *"
+                            required="required"
+                            data-error="Valid email is required."
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_need"
+                            >Please specify your need *</label
+                          >
+                          <select
+                            id="form_need"
+                            name="need"
+                            class="form-control"
+                            required="required"
+                            data-error="Please specify your need."
+                          >
+                            <option value="" selected disabled>
+                              --Select Your Issue--
+                            </option>
+                            <!-- <option>Request Invoice for order</option> -->
+                            <option>Request Service Ticket</option>
+                            <!-- <option>Haven't received cashback yet</option> -->
+                            <option>Other</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="form_message">Message *</label>
+                          <textarea
+                            id="form_message"
+                            name="message"
+                            class="form-control"
+                            placeholder="Write your message here."
+                            rows="4"
+                            required="required"
+                            data-error="Please, leave us a message."
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <input
+                          type="submit"
+                          class="btn btn-success btn-send pt-2 btn-block"
+                          value="Send Message"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /.8 -->
+        </div>
+        <!-- /.row-->
+      </div>
+    </div>
+  </body>
+</html>
