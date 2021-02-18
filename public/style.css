@@ -90,7 +90,7 @@ table thead, table tbody tr {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #b1b1b1; 
+    background:transparent; 
     border-radius: 10px;
 }
 
