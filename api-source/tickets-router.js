@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
+const { Router } = require('express');
 require('dotenv').config();
 // getting credential to connect to db
 username = process.env.USER
@@ -29,7 +30,14 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
     data.then(result => res.send(result))
       .catch(error => console.error(error));
   })
-
+  router.get('/:id', (req, res) => {
+    data = db.collection('tickets').findOne(
+      { 
+        id: req.body.id 
+      });
+    data.then(result => res.send(result))
+      .catch(error => console.error(error));
+  })
   // Post Method
 
   router.post('/', (req, res) => {
