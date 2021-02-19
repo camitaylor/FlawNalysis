@@ -1,5 +1,5 @@
 function reload() {
-    window.location = "http://localhost:3030";
+    window.location = "http://localhost:3030/dashboard.html";
 }
 
 function submitForm() {
@@ -27,7 +27,7 @@ function submitForm() {
             body: JSON.stringify(data)
         })
         .then((res) => {
-            window.location.href = "http://localhost:3030/"
+            window.location.href = "http://localhost:3030/dashboard.html"
 
 
             // try that...
