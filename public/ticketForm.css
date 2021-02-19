@@ -54,8 +54,8 @@ select option{
   margin-top: 8rem !important;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .container {
-     min-width: 1px;
+    min-width: 1px;
   }
 }
