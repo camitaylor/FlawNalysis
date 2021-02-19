@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 // getting credential to connect to db
-username = process.env.USER
+username = process.env.USERNAME
 password = process.env.PASSWORD
 connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
 // port # from .env
@@ -34,7 +34,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
 
   router.post('/', (req, res) => {
     data = db.collection('tickets').insertOne(req.body);
-    data.then(result => res.redirect(301,'/'))
+    data.then(result => res.redirect(301, '/'))
       .catch(error => console.error(error));
   })
 
@@ -83,4 +83,4 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
 })
   .catch(error => console.error(error))
 
-  module.exports = router
+module.exports = router
