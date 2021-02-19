@@ -86,9 +86,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
       .catch(error => console.error(error))
   })
 })
-<<<<<<< Updated upstream
   .catch(error => console.error(error))
 
-=======
->>>>>>> Stashed changes
 module.exports = router
