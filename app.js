@@ -29,13 +29,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
   // Add all the CRUD here!
 
   // Get Methods
-  app.get('/tickets', (req, res) => {
+  app.get('/', (req, res) => {
     data = ticketsCollection.find().toArray();
     data.then(result => res.send(result))
       .catch(error => console.error(error));
   })
 
-  app.get('/tickets/:id', (req, res) => {
+  app.get('/:id', (req, res) => {
     data = ticketsCollection.find().toArray();
     data.then(result => res.send(result))
       .catch(error => console.error(error));
@@ -43,7 +43,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
 
   // Post Method
 
-  app.post('/tickets', (req, res) => {
+  app.post('/', (req, res) => {
     data = ticketsCollection.insertOne(req.body);
     data.then(result => res.redirect('/'))
       .catch(error => console.error(error));
@@ -51,7 +51,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
 
   //Put Method
 
-  app.put('/tickets/:id', (req, res) => {
+  app.put('/:id', (req, res) => {
     if (req.body.ticketDetails) {
       data = ticketsCollection.findOneAndUpdate(
         { id: req.body.id },
@@ -89,7 +89,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
   })
 
   //Delete Method
-  app.delete('/tickets/:id', (req, res) => {
+  app.delete('/:id', (req, res) => {
     data = ticketsCollection.deleteOne(
       {
         id: req.body.id,
