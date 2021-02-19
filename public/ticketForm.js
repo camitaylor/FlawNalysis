@@ -1,5 +1,5 @@
 function reload() {
-    window.location = "http://localhost:3030";
+    window.location = "http://localhost:3030/dashboard.html";
 }
 
 function submitForm() {
@@ -19,18 +19,27 @@ function submitForm() {
         assignedTo: 'pending',
         requestedDate: date
     }
+
 };
 
-
-console.log(data)
-fetch('/tickets', {
-    method: 'POST',
-    redirect: 'follow',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-})
-    .then((res) => {
-        window.location.href = "http://localhost:3030/"
+    console.log(data)
+    fetch('/tickets', {
+            method: 'POST',
+            redirect: 'follow',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then((res) => {
+            window.location.href = "http://localhost:3030/dashboard.html"
+    console.log(data)
+    fetch('/tickets', {
+        method: 'POST',
+        redirect: 'follow',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+        .then((res) => {
+            window.location.href = "http://localhost:3030/"
 
 
         // try that...

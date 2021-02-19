@@ -5,6 +5,6 @@ fetch('/tickets').then(res => {
   })
   .then(respose => {
       respose.forEach(data => {
-        document.getElementById('tableBody').innerHTML += `<tr><td>${data.name}</td><td>${data.ticketDetails}</td><td>${data.assignedTo}</td><td>${data.requestedDate}</td></tr>`
+        document.getElementById('tableBody').innerHTML += `<tr><td class = "name" >${data.name}</td><td class = "details">${data.ticketDetails}</td><td class = "Assigned">${data.assignedTo}</td><td class = "date">${data.requestedDate}</td><td class = "editButton"><a href = "#" value = ${data._id}><i class="glyphicon glyphicon-edit"></i></a></td><td class = "editButton"><a href = "#" value = ${data._id}><i class="glyphicon glyphicon-remove"></i></a></td></tr>`
       });
   })
