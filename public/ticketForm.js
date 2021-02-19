@@ -9,7 +9,7 @@ function submitForm() {
     let type = document.getElementById("form_need").value;
     let ticketDetails = document.getElementById("form_message").value;
 
-    let date = `${new Date().getMonth()+1}/${new Date().getDate()}/${new Date().getFullYear()}`
+    let date = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
 
     let data = {
         name: `${firstName} ${lastName}`,
@@ -19,23 +19,25 @@ function submitForm() {
         assignedTo: 'pending',
         requestedDate: date
     }
-    console.log(data)
-    fetch('/tickets', {
-            method: 'POST',
-            redirect: 'follow',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        })
-        .then((res) => {
-            window.location.href = "http://localhost:3030/"
+};
 
 
-            // try that...
-            /*    
-                if (res.redirect) {
-                  
-                  window.location.href = res.url;
-                }
-            */
-        })
-}
+console.log(data)
+fetch('/tickets', {
+    method: 'POST',
+    redirect: 'follow',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+})
+    .then((res) => {
+        window.location.href = "http://localhost:3030/"
+
+
+        // try that...
+        /*    
+            if (res.redirect) {
+              
+              window.location.href = res.url;
+            }
+        */
+    });

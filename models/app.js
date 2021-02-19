@@ -36,7 +36,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
   })
 
   app.get('/:id', (req, res) => {
-    data = ticketsCollection.find().toArray();
+    data = ticketsCollection.findOne(
+      { id: req.body.id }
+    );
     data.then(result => res.send(result))
       .catch(error => console.error(error));
   })
