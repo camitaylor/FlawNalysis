@@ -1,6 +1,6 @@
 body {
   font-family: "Lato", sans-serif;
-  background-color: #262727;
+  background-color:#262727;
 }
 
 /* #contact-form { 
@@ -15,8 +15,8 @@ h1 {
 label {
   color: #ffff;
 }
-.bg-info {
-  background-color: black !important;
+.bg-info{
+  background-color:black !important;
 }
 .btn-send {
   font-weight: 300;
@@ -35,18 +35,18 @@ label {
   margin-left: 10px;
   margin-right: 10px;
 }
-select option {
-  color: black;
+select option{
+  color:black;
 }
-#buttonGroup {
-  display: flex;
-  flex-wrap: wrap !important;
+#buttonGroup{
+  display:flex;
+  flex-wrap:wrap !important;
   justify-content: space-between !important;
 }
-.btn {
-  margin: 1rem auto !important;
+.btn{
+  margin:1rem auto !important;
   display: block !important;
-  width: 10rem;
+  width:10rem;
 }
 .card {
   display: block !important;

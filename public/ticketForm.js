@@ -19,7 +19,6 @@ function submitForm() {
         assignedTo: 'pending',
         requestedDate: date
     }
-
     console.log(data)
     fetch('/tickets', {
         method: 'POST',
@@ -27,6 +26,7 @@ function submitForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
+
         .then((res) => {
             window.location.href = "http://localhost:3030/confirmation.html"
         });
@@ -39,16 +39,15 @@ function submitForm() {
         redirect: 'follow',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
+
+            .then((res) => {
+                window.location.href = "http://localhost:3030/dashboard.html"
+                /*    
+                    if (res.redirect) {
+                    
+                    window.location.href = res.url;
+                    }
+                */
+            })
     })
-        .then((res) => {
-            window.location.href = "http://localhost:3030/"
-
-
-            // try that...
-            /*    
-                if (res.redirect) {
-                  
-                  window.location.href = res.url;
-                }
-            */
-        });
+}
