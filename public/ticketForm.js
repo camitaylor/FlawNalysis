@@ -28,8 +28,8 @@ function submitForm() {
         body: JSON.stringify(data)
     })
         .then((res) => {
-            window.location.href = "http://localhost:3030/dashboard.html"
-        };
+            window.location.href = "http://localhost:3030/confirmation.html"
+        });
 
 
 
