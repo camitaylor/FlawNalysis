@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
 const { Router } = require('express');
+const { ObjectID } = require('mongodb');
 // const ticket = require('../models/ticket');
 require('dotenv').config();
 // getting credential to connect to db
@@ -32,8 +33,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
       .catch(error => console.error(error));
   })
   router.get('/:name', (req, res) => {
-    console.log(req.params.name)
-    data = db.collection('tickets').findOne({id: req.params.name});
+    id = req.params.name
+    o_id = new ObjectID(id)
+    data = db.collection('tickets').findOne({ _id: o_id });
     data.then(result => res.send(result))
       .catch(error => console.error(error));
   })

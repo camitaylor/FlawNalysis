@@ -59,20 +59,9 @@ h2 {
   cursor: pointer;
   margin: 12px;
 }
-.btn:hover {
-}
-<<<<<<< HEAD
 #addTicket{
 font-size: 2rem;
-=======
 
-*/ #logo {
-  height: 3.5rem;
-  width: auto;
-}
-#addTicket {
-  font-size: 2rem;
->>>>>>> main
 }
 .ticketDisplay {
   margin-top: 2rem;
@@ -156,15 +145,9 @@ table tbody tr {
 
 /* Track */
 ::-webkit-scrollbar-track {
-<<<<<<< HEAD
     background:transparent; 
     border-radius: 10px;
-=======
-  background: #b1b1b1;
-  border-radius: 10px;
->>>>>>> main
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(75, 75, 75);
@@ -173,62 +156,9 @@ table tbody tr {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-<<<<<<< HEAD
     background: rgb(36, 35, 35); 
 }
 .remove{
     background-color: transparent !important;
     border:none;
-  }
-=======
-  background: rgb(36, 35, 35);
 }
-.navbar > .container,
-.navbar > .container-fluid,
-.navbar > .container-lg,
-.navbar > .container-md,
-.navbar > .container-sm,
-.navbar > .container-xl,
-.navbar > .container-xxl {
-  display: inline-block;
-  align-items: center;
-  justify-content: space-between;
-  background-color: black;
-}
-.navbar {
-  background-color: black !important;
-}
-
-.navbar-nav {
-  display: inline-block;
-  flex-direction: column;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-.imgcontainer {
-  float: left;
-  width: 150px;
-  height: 150px;
-}
-@media (max-width: 768px) {
-  .navbar > .container,
-  .navbar > .container-fluid,
-  .navbar > .container-lg,
-  .navbar > .container-md,
-  .navbar > .container-sm,
-  .navbar > .container-xl,
-  .navbar > .container-xxl {
-    display: block;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-  }
-}
->>>>>>> main

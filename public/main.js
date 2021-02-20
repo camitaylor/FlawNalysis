@@ -44,7 +44,7 @@ function findClickedRowRemove(event) {
 function deleteTicket(element){
   _id = element.value;
   console.log(_id)
-  url = `/tickets/ObjectId(${_id})`;
+  url = `/tickets/${_id})`;
   fetch(url).then(res => {
     if(res.body.id){
         return res.json();
