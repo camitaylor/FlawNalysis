@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
-const { Router } = require('express');
-const { ObjectID } = require('mongodb');
+const ObjectID = require("bson-objectid");
 // const ticket = require('../models/ticket');
 require('dotenv').config();
 // getting credential to connect to db
@@ -32,9 +31,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
     data.then(result => res.send(result))
       .catch(error => console.error(error));
   })
-  router.get('/:name', (req, res) => {
-    id = req.params.name
-    o_id = new ObjectID(id)
+  router.get('/:id', (req, res) => {
+    id = req.params.id
+    o_id = ObjectID(`${id}`)
     data = db.collection('tickets').findOne({ _id: o_id });
     data.then(result => res.send(result))
       .catch(error => console.error(error));
@@ -70,20 +69,15 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
 
   //Delete Method
   router.delete('/:id', (req, res) => {
-    console.log(req.body)
-    db.collection('tickets').deleteOne({
-      id: req.body.id,
-      name: req.body.name,
-      type: req.body.type,
-      requestedDate: req.body.requestedDate,
-      assignedTo: req.body.assignedTo,
-      ticketDetails: req.body.ticketDetails
-    })
+    id = req.params.id
+    o_id = ObjectID(`${id}`)
+    console.log(o_id)
+    db.collection('tickets').deleteOne({ _id: o_id })
     .then(result => {
         if (result.deletedCount === 0) {
-          return res.json('No quote to delete')
+          return res.json('ticket not found')
         }
-        res.json(`Deleted Darth Vadar's quote`)
+        res.json(`deleted`)
       })
       .catch(error => console.error(error))
   })

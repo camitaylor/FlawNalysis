@@ -11,7 +11,7 @@ fetch('/tickets').then(res => {
         <td class = "Assigned">${data.assignedTo}</td>
         <td class = "date">${data.requestedDate}</td>
         <td class = "editButton"><a href = "#" value = ${data._id}><i class="glyphicon glyphicon-edit"></i></a></td>
-        <td class = "editButton"><button class = "remove" href = "#" value = ${data._id}><i class="glyphicon glyphicon-remove"></i></button></td>
+        <td class = "editButton"><button class = "remove" value = ${data._id}><i class="glyphicon glyphicon-trash"></button></a></td>
         </tr>`
       });
   })
@@ -32,34 +32,29 @@ function findClickedRowRemove(event) {
   // Climb up the document tree from the target of the event
   while (element) {
       if (element.nodeName === "BUTTON" && /remove/.test(element.className)) {
-        deleteTicket(element)
+        console.log(element.value)
+        localStorage.setItem("id",`${element.value}`);
+        window.location.href='#popup1'
         break;
       }
-
       element = element.parentNode;
   }
 }
 
 
-function deleteTicket(element){
-  _id = element.value;
-  console.log(_id)
-  url = `/tickets/${_id})`;
-  fetch(url).then(res => {
-    if(res.body.id){
-        return res.json();
-    }
+function deleteTicket(){
+  id = localStorage.getItem('id');
+  url = `/tickets/${id}`;
+  fetch(url,{
+    method: 'delete'
+  }).then(res => {
+      return res.json();
   })
   .then(result =>{
     console.log(result)
-  //   fetch('/tickets',{
-  //     method: 'delete',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(result)
-  //   }).then(res=> res.json)
-  // .then(result => console.log(result))
-  })
-}
+    localStorage.removeItem('id')
+    window.location.href='http://localhost:3030/dashboard.html';
+})
 // if (document.addEventListener) {
 //   document.addEventListener("click", findClickedRow, false);
 // }
@@ -83,4 +78,4 @@ function deleteTicket(element){
 //       element = element.parentNode;
 //   }
 // }
-
+}
