@@ -11,10 +11,7 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
   color: ;
-=======
 }
 .navbar {
   z-index: 4;
@@ -89,9 +86,6 @@ h3 {
 }
 .btn:hover {
   transform: scale(0.95);
->>>>>>> main
-}
-=======
 }
 .navbar {
   z-index: 4;
@@ -168,4 +162,3 @@ h3 {
 .btn:hover {
   transform: scale(0.95);
 }
->>>>>>> Stashed changes
