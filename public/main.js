@@ -10,7 +10,7 @@ fetch('/tickets').then(res => {
         <td class = "details">${data.ticketDetails}</td>
         <td class = "Assigned">${data.assignedTo}</td>
         <td class = "date">${data.requestedDate}</td>
-        <td class = "editButton"><a href = "#" value = ${data._id}><i class="glyphicon glyphicon-edit"></i></a></td>
+        <td class = "editButton"><button class ="edit" value = ${data._id}><i class="glyphicon glyphicon-edit"></i></buton></td>
         <td class = "editButton"><button class = "remove" value = ${data._id}><i class="glyphicon glyphicon-trash"></button></a></td>
         </tr>`
       });
@@ -27,7 +27,7 @@ function findClickedRowRemove(event) {
   event = event || window.event;
   event.target = event.target || event.srcElement;
 
-  var element = event.target;
+  let element = event.target;
 
   // Climb up the document tree from the target of the event
   while (element) {
@@ -35,6 +35,10 @@ function findClickedRowRemove(event) {
         console.log(element.value)
         localStorage.setItem("id",`${element.value}`);
         window.location.href='#popup1'
+        break;
+      }
+      else if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
+        console.log(element.value)
         break;
       }
       element = element.parentNode;
@@ -55,27 +59,8 @@ function deleteTicket(){
     localStorage.removeItem('id')
     window.location.href='http://localhost:3030/dashboard.html';
 })
-// if (document.addEventListener) {
-//   document.addEventListener("click", findClickedRow, false);
-// }
-// else if (document.attachEvent) {
-//   document.attachEvent("onclick", findClickedRow);
-// }
 
-// function findClickedRow(event) {
-//   event = event || window.event;
-//   event.target = event.target || event.srcElement;
-
-//   var element = event.target;
-
-//   // Climb up the document tree from the target of the event
-//   while (element) {
-//       if (element.nodeName === "BUTTON" && /remove/.test(element.className)) {
-//         console.log()
-//         break;
-//       }
-
-//       element = element.parentNode;
-//   }
-// }
 }
+
+
+
