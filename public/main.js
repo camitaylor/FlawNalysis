@@ -39,6 +39,8 @@ function findClickedRowRemove(event) {
       }
       else if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
         console.log(element.value)
+        sessionStorage.setItem("id",`${element.value}`);
+        window.location.href='/updateTicket.html'
         break;
       }
       element = element.parentNode;
