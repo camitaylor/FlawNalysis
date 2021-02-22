@@ -5,9 +5,8 @@ body {
 }
 
 img {
+  width:22rem;
   display: center;
-  padding-top: 100px;
-  padding-right: 150px;
 }
 
 h1 {
@@ -25,4 +24,10 @@ h1 {
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #cccccc;
+}
+.container{
+  display:block;
+  position:relative;
+  margin-top:auto;
+  margin-bottom:auto;
 }

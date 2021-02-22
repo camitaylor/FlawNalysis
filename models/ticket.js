@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 
 // instantiate object Schema
 let Ticket = new mongoose.Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
+    name: {
         type: String,
         required: true
     },
     ticketDetails: {
         type: String,
+        required: true
+    },
+    type:{
+        type:String,
         required: true
     },
     priority: {
@@ -22,7 +22,14 @@ let Ticket = new mongoose.Schema({
     },
     status: {
         type: String
+    },
+    date:{
+        type: Date
+    },
+    email:{
+        type: String
     }
+
 });
 
 

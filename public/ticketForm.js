@@ -26,28 +26,17 @@ function submitForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
-
         .then((res) => {
             window.location.href = "http://localhost:3030/confirmation.html"
-        });
 
 
-
-    console.log(data)
-    fetch('/tickets', {
-        method: 'POST',
-        redirect: 'follow',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-
-            .then((res) => {
-                window.location.href = "http://localhost:3030/dashboard.html"
-                /*    
-                    if (res.redirect) {
-                    
-                    window.location.href = res.url;
-                    }
-                */
-            })
-    })
+            // try that...
+            /*    
+                if (res.redirect) {
+                  
+                  window.location.href = res.url;
+                }
+            */
+        })
 }
+
