@@ -18,7 +18,7 @@
             <div class="card my-auto mx-auto p-4 bg-info" id ="vertical-center">
               <div class="card-body bg-info">
                 <div class="container bg-info">
-                  <form id="contact-form" role="form" onsubmit="submitForm(); return false;">
+                  <form id="contact-form" role="form" onsubmit="submitUpdate(); return false;">
                     <div class="controls bg-info">
                       <h3 class = "text-center pb-3 mx-5" style="color:white;">Click on Blue Pencil Icon to edit a field. First and Last name cannot be editted</h3>
                       <div class="row">
@@ -94,6 +94,66 @@
                         </div>
                       </div>
                       <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_assigned">Assigned To</label>
+                            <button class = "remove" type = "button" onclick="disableEnable(assignedTO)"><i class="glyphicon glyphicon-pencil"></i></button>
+                            <input
+                              id="form_assigned"
+                              type="name"
+                              name="name"
+                              class="form-control"
+                              placeholder="Josh Wagner"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="form_need"
+                              >Status *</label
+                            >
+                            <button class = "remove" type = "button" onclick="disableEnable(status)"><i class="glyphicon glyphicon-pencil"></i></button>
+                            <select
+                              id="form_status"
+                              name="need"
+                              class="form-control"
+                              required="required"
+                              data-error="Please specify your need." disabled>
+                              <option value="" selected disabled>
+                                --Select Status--
+                              </option>
+                              <option>Pending</option>
+                              <opt</option>
+                              <option>In Progress</option>
+                              <option>Progress</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="form_need" 
+                              >Priority*</label
+                            >
+                            <button class = "remove" type = "button" onclick="disableEnable(priority)"><i class="glyphicon glyphicon-pencil"></i></button>
+                            <select
+                              id="form_priority"
+                              name="need"
+                              class="form-control"
+                              required="required"
+                              data-error="Please specify your need." disabled>
+                              <option value="" selected disabled>
+                                --Select Priority--
+                              </option>
+                              <option>High</option>
+                              <opt</option>
+                              <option>Normal</option>
+                              <option>Low</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
                             <label for="form_message">Ticket Details *</label>
@@ -112,7 +172,7 @@
                         </div>
                         <div class="col-md-12" id = "buttonGroup">
                           <button class = "btn btn-primary" type = "button" onclick = "reload()">Cancel</button>
-                          <button class = "btn btn-primary" type = "submit" >Submit Ticket</button>
+                          <button class = "btn btn-primary" type = "submit">Submit Ticket</button>
                         </div>
                         </div>
                       </div>
@@ -128,9 +188,13 @@ let firstName = document.getElementById("form_name")
 let lastName = document.getElementById("form_lastname")
 let textArea = document.getElementById("form_message")
 let email = document.getElementById("form_email")
+let assignedTO = document.getElementById("form_assigned")
 let selection = document.getElementById("form_need")
+let priority = document.getElementById("form_priority")
+let status = document.getElementById("form_status")
 
 id = sessionStorage.getItem('id');
+// Getting Ticket details to view on the page
 url = `/tickets/${id}`;
 fetch(url).then(res => {
     return res.json();
@@ -143,10 +207,15 @@ fetch(url).then(res => {
     lastName.value = firstLastName[1];
     textArea.value = result.ticketDetails;
     email.value = "No email attached"|| result.email;
-    selection.value = result.type
+    assignedTO.value = result.type|| "";
+    status.value = status.type|| "";
+    priority.value = priority.type|| "";
+    selection.value = result.type || "";
 
 
 })
+
+// to tuggle btw disable and unable to limit error
 function disableEnable(element){
     if(element.disabled)
         element.disabled = false;
@@ -157,7 +226,25 @@ function disableEnable(element){
 function reload() {
     window.location = "http://localhost:3030/dashboard.html";
 }
-
+function submitUpdate(){
+  data = {
+    name: `${firstName.value} ${lastName.value}`,
+    email: email.value,
+    type: selection.value,
+    assignedTO: assignedTO.value,
+    status: status.value,
+    priority: priority.value,
+    ticketDetails: textArea.value
+  }
+  console.log(data)
+//   id = sessionStorage.getItem('id');
+//   url = `/tickets/${id}`
+//   fetch(url,{
+//     method:"put",
+//     body:JSON.stringify(data)
+//   }).then(res => res.json)
+//   .then(result => console.log(result))
+}
 
 </script>
 </body>

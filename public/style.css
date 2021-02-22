@@ -158,7 +158,8 @@ table tbody tr {
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(36, 35, 35); 
 }
-.remove{
-    background-color: transparent !important;
-    border:none;
+
+.remove, .edit{
+  background-color: transparent !important;
+  border:none;
 }

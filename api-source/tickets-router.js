@@ -49,8 +49,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
   //Put Method
 
   router.put('/:id', (req, res) => {
+    id = req.params.id
+    let o_id = ObjectID(`${id}`)
     data = db.collection('tickets').findOneAndUpdate(
-      { id: req.body.id },
+      { _id: o_id },
       {
         $set: {
           assignedTo: req.body.assignedTo,
