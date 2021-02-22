@@ -237,14 +237,15 @@ function submitUpdate(){
     ticketDetails: textArea.value
   }
   console.log(data)
-//   id = sessionStorage.getItem('id');
-//   url = `/tickets/${id}`
-//   fetch(url,{
-//     method:"put",
-//     body:JSON.stringify(data)
-//   }).then(res => res.json)
-//   .then(result => console.log(result))
+  id = sessionStorage.getItem('id');
+  url = `/tickets/${id}`
+  fetch(url,{
+    method:"put",
+    body:JSON.stringify(data)
+  }).then(res => res.json)
+  .then(result => console.log(result))
 }
+
 
 </script>
 </body>

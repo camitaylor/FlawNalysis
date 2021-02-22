@@ -6,7 +6,7 @@ const ObjectID = require("bson-objectid");
 // const ticket = require('../models/ticket');
 require('dotenv').config();
 // getting credential to connect to db
-username = process.env.USER
+username = process.env.USERNAME
 password = process.env.PASSWORD
 connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
 // port # from .env
@@ -55,6 +55,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
       { _id: o_id },
       {
         $set: {
+          status: req.body.status,
+          priority: req.body.priority,
           assignedTo: req.body.assignedTo,
           ticketDetails: req.body.ticketDetails
         }
@@ -75,7 +77,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
     o_id = ObjectID(`${id}`)
     console.log(o_id)
     db.collection('tickets').deleteOne({ _id: o_id })
-    .then(result => {
+      .then(result => {
         if (result.deletedCount === 0) {
           return res.json('ticket not found')
         }
