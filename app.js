@@ -4,6 +4,12 @@ const mongoose = require('mongoose'); //get mongoose from modules
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
+const userInViews = require('./lib/middleware/userInViews');
+const authRouter = require('./routes/auth');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
+
 // getting credential to connect to db
 username = process.env.USERNAME
 password = process.env.PASSWORD
@@ -24,6 +30,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(userInViews());
+  app.use('/', authRouter);
+  app.use('/', indexRouter);
+  app.use('/', usersRouter);
 
 
   // Add all the CRUD here!

@@ -1,0 +1,11 @@
+  body
+    // ...
+    a(href="/") Home
+    if locals.user
+      a(href="/user") Profile
+      a(href="/logout") Log Out
+    else
+      a(href="/login") Log In
+
+    // ...
+    block content
