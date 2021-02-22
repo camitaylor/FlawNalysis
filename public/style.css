@@ -4,6 +4,9 @@
 body {
   background-color: #0f1616;
 }
+.img {
+  margin: 40px;
+}
 h2 {
   text-align: center;
 }
@@ -61,7 +64,7 @@ h2 {
 
 .btn {
   width: 100%;
-  background: none;
+  background: #165558;
   border: 2px solid #4b8f82;
   color: white;
   padding: 5px;
