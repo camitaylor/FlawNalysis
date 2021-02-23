@@ -201,15 +201,15 @@ fetch(url).then(res => {
 })
 .then(result =>{
     console.log(result)
-    let firstLastName = result.name.split(" ")
+    let firstLastName = result.name.split(" ");
     console.log(firstLastName);
     firstName.value = firstLastName[0];
     lastName.value = firstLastName[1];
     textArea.value = result.ticketDetails;
     email.value = "No email attached"|| result.email;
-    assignedTO.value = result.type|| "";
-    status.value = status.type|| "";
-    priority.value = priority.type|| "";
+    assignedTO.value = result.assignedTo|| "";
+    status.value = result.status|| "";
+    priority.value = result.priority|| "";
     selection.value = result.type || "";
 
 
@@ -227,11 +227,11 @@ function reload() {
     window.location = "http://localhost:3030/dashboard.html";
 }
 function submitUpdate(){
-  data = {
+  let data = {
     name: `${firstName.value} ${lastName.value}`,
     email: email.value,
     type: selection.value,
-    assignedTO: assignedTO.value,
+    assignedTo: assignedTO.value,
     status: status.value,
     priority: priority.value,
     ticketDetails: textArea.value
@@ -241,11 +241,11 @@ function submitUpdate(){
   url = `/tickets/${id}`
   fetch(url,{
     method:"put",
+    headers: { 'Content-Type': 'application/json' },
     body:JSON.stringify(data)
-  }).then(res => res.json)
+  }).then(res => res.json())
   .then(result => console.log(result))
 }
-
 
 </script>
 </body>

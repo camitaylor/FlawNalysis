@@ -6,7 +6,7 @@ const ObjectID = require("bson-objectid");
 // const ticket = require('../models/ticket');
 require('dotenv').config();
 // getting credential to connect to db
-username = process.env.USERNAME
+username = process.env.USER
 password = process.env.PASSWORD
 connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
 // port # from .env
@@ -51,11 +51,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(client 
   router.put('/:id', (req, res) => {
     id = req.params.id
     let o_id = ObjectID(`${id}`)
+    console.log(req.body)
     data = db.collection('tickets').findOneAndUpdate(
       { _id: o_id },
       {
         $set: {
           status: req.body.status,
+          type: req.body.type,
           priority: req.body.priority,
           assignedTo: req.body.assignedTo,
           ticketDetails: req.body.ticketDetails

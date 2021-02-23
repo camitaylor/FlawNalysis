@@ -62,7 +62,7 @@ function deleteTicket(){
   })
   .then(result =>{
     console.log(result)
-    localStorage.removeItem('id')
+    sessionStorage.removeItem('id')
     window.location.href='http://localhost:3030/dashboard.html';
 })
 
