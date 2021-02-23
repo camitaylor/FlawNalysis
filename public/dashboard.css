@@ -54,11 +54,6 @@
     display: table;
     table-layout: fixed;
   }
-  .editButton {
-    width: 5%;
-    line-height:100%;
-  }
-  
   #label-button {
     display: flex;
     justify-content: space-between !important;
@@ -174,4 +169,14 @@
     .popup {
       width: 70%;
     }
+  }
+
+  .High{
+    color:red !important;
+  }
+  .Low{
+    color:yellow !important;
+  }
+  .Normal{
+    color:green !important;
   }

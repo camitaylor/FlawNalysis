@@ -10,6 +10,8 @@ fetch('/tickets').then(res => {
         <td class = "details">${data.ticketDetails}</td>
         <td class = "Assigned">${data.assignedTo}</td>
         <td class = "date">${data.requestedDate}</td>
+        <td>${data.status}</td>
+        <td class = "${data.priority}">${data.priority}</td>
         <td class = "editButton"><button class ="edit" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i></buton></td>
         <td class = "editButton"><button class = "remove" value = ${data._id}><i class="glyphicon glyphicon-trash"></button></a></td>
         </tr>`
