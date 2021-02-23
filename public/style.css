@@ -4,6 +4,9 @@
 body {
   background-color: #0f1616;
 }
+.img {
+  margin: 40px;
+}
 h2 {
   text-align: center;
 }
@@ -48,31 +51,38 @@ h2 {
   float: left;
   margin: 0 10px;
 }
+.btn-primary {
+  background-color: #165558 !important;
+  border: 1px #5cc4b0 solid !important;
+  opacity: 0.7;
+}
+.btn:hover {
+  transform: scale(0.95);
+  background: #4b8f82 !important;
+  color: white;
+}
 
 .btn {
   width: 100%;
-  background: none;
+  background: #165558;
   border: 2px solid #4b8f82;
   color: white;
   padding: 5px;
-  font-size: 18px;
+  font-size: 10x;
   cursor: pointer;
   margin: 12px;
 }
-.btn:hover {
-}
-<<<<<<< HEAD
-#addTicket{
-font-size: 2rem;
-=======
 
-*/ #logo {
+
+
+
+ #logo {
   height: 3.5rem;
   width: auto;
 }
 #addTicket {
   font-size: 2rem;
->>>>>>> main
+
 }
 .ticketDisplay {
   margin-top: 2rem;

@@ -29,8 +29,10 @@ h1 {
 }
 h3 {
   font-weight: 200;
-  font-size: 20px;
+  font-size: 30px;
   line-height: 1.75;
+  padding: 5rem;
+  max-width: 985px;
 }
 .showcase {
   position: relative;
@@ -45,7 +47,7 @@ h3 {
 }
 
 .video-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -72,20 +74,27 @@ h3 {
   background: rgba(0, 0, 0, 0.7);
 }
 .content {
+  display: block;
+  margin: auto;
   z-index: 10;
 }
+
 .btn {
   display: inline-block;
   padding: 20px 40px;
-  background: var(--primary-color);
+  font-size: 18px;
+  background: #165558;
   color: #fff;
-  border: 1px #fff solid;
+  border: 1px #5cc4b0 solid;
   border-radius: 5px;
   margin-top: 75px;
   opacity: 0.7;
 }
+
 .btn:hover {
   transform: scale(0.95);
+  background: #4b8f82;
+  color: white;
 }
 .navbar {
   z-index: 4;
