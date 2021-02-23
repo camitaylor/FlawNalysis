@@ -73,16 +73,12 @@ h2 {
   margin: 12px;
 }
 
-
-
-
- #logo {
+#logo {
   height: 3.5rem;
   width: auto;
 }
 #addTicket {
   font-size: 2rem;
-
 }
 .ticketDisplay {
   margin-top: 2rem;
@@ -166,13 +162,8 @@ table tbody tr {
 
 /* Track */
 ::-webkit-scrollbar-track {
-<<<<<<< HEAD
-    background:transparent; 
-    border-radius: 10px;
-=======
-  background: #b1b1b1;
+  background: transparent;
   border-radius: 10px;
->>>>>>> main
 }
 
 /* Handle */
@@ -183,14 +174,12 @@ table tbody tr {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-<<<<<<< HEAD
-    background: rgb(36, 35, 35); 
+  background: rgb(36, 35, 35);
 }
-.remove{
-    background-color: transparent !important;
-    border:none;
-  }
-=======
+.remove {
+  background-color: transparent !important;
+  border: none;
+
   background: rgb(36, 35, 35);
 }
 .navbar > .container,
@@ -241,4 +230,3 @@ table tbody tr {
     list-style: none;
   }
 }
->>>>>>> main
