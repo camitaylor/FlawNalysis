@@ -11,11 +11,12 @@ dotenv.config();
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const flash = require('connect-flash');
-const userInViews = require('./lib/middleware/userInViews');
+const userInViews = require('./lib/middleware/userInViews.js');
 const authRouter = require('./routes/auth');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
+app.use(userInViews());
+console.log(userInViews);
 const strategy = new Auth0Strategy(
   {
     domain: 'dev-osgtgiht.us.auth0.com',
@@ -51,7 +52,7 @@ const strategy = new Auth0Strategy(
       done(null, user);
     });
 
-    const app = express();
+  
 
     app.set('views', path.join(__dirname, 'views'));
     app.set('view engine', 'pug');
@@ -99,7 +100,7 @@ const strategy = new Auth0Strategy(
           next();
         });
 
-        app.use(userInViews());
+        
         app.use('/', authRouter);
         app.use('/', indexRouter);
         app.use('/', usersRouter);
