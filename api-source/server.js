@@ -10,6 +10,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+const flash = require('connect-flash');
+const userInViews = require('./lib/middleware/userInViews');
+const authRouter = require('./routes/auth');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
 const strategy = new Auth0Strategy(
   {
@@ -36,6 +41,33 @@ const strategy = new Auth0Strategy(
   }
 );
 
+    passport.use(strategy); 
+
+    passport.serializeUser(function (user, done) {
+      done(null, user);
+    });
+    
+    passport.deserializeUser(function (user, done) {
+      done(null, user);
+    });
+
+    const app = express();
+
+    app.set('views', path.join(__dirname, 'views'));
+    app.set('view engine', 'pug');
+
+    app.use(logger('dev'));
+    app.use(cookieParser());
+    
+    const sess = {
+      secret: 'Q7KRrDoCRO-eSTItS64cgE-Do6yKpkDhkSMK81FjjavahhPVMiVr-UUAO3zd3yG_',
+      cookie: {},
+      resave: false,
+      saveUninitialized: true
+    };
+    
+    
+    
     const config = {
         authRequired: false,
         auth0Logout: true,
@@ -44,22 +76,34 @@ const strategy = new Auth0Strategy(
         clientID: 'K4vCyv0K91Sw7PxLoNSVTmj9e574eMdB',
         issuerBaseURL: 'https://dev-osgtgiht.us.auth0.com'
       };
-      const sess = {
-          secret: 'Q7KRrDoCRO-eSTItS64cgE-Do6yKpkDhkSMK81FjjavahhPVMiVr-UUAO3zd3yG_',
-          cookie: {},
-          resave: false,
-          saveUninitialized: true
-        };
-
-    
      
-        passport.serializeUser(function (user, done) {
-            done(null, user);
-          });
-          
-          passport.deserializeUser(function (user, done) {
-            done(null, user);
-          });
+      if (app.get('env') === 'production') {
+        // Use secure cookies in production (requires SSL/TLS)
+        sess.cookie.secure = true;
+
+        app.use(session(sess));
+    
+        app.use(passport.initialize());
+        app.use(passport.session());
+        app.use(express.static(path.join(__dirname, 'public')));
+
+        app.use(flash());
+
+        app.use(function (req, res, next) {
+          if (req && req.query && req.query.error) {
+            req.flash('error', req.query.error);
+          }
+          if (req && req.query && req.query.error_description) {
+            req.flash('error_description', req.query.error_description);
+          }
+          next();
+        });
+
+        app.use(userInViews());
+        app.use('/', authRouter);
+        app.use('/', indexRouter);
+        app.use('/', usersRouter);
+
 
 app.use(express.static('public'))
 require('dotenv').config();
@@ -79,12 +123,39 @@ app.listen(port, function() {
     console.log(`listening on: http://localhost:${port}`)
 })
 
+// Catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
+// Error handlers
 
+// Development error handler
+// Will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function (err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
+}
 
-  if (app.get('env') === 'production') {
-    // Use secure cookies in production (requires SSL/TLS)
-    sess.cookie.secure = true;
+// Production error handler
+// No stacktraces leaked to user
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
+
+module.exports = app;
+  
 
 app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
@@ -103,9 +174,4 @@ app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
-app.use(session(sess));
-passport.use(strategy);
-
-app.use(passport.initialize());
-app.use(passport.session());
   }
