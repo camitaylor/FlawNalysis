@@ -8,7 +8,8 @@ require('dotenv').config();
 // getting credential to connect to db
 username = process.env.USER
 password = process.env.PASSWORD
-connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
+connectionString = `mongodb+srv://oscarh:capstone2021@cluster0.d0ygw.mongodb.net/tickets?authSource=admin&replicaSet=atlas-11ga4h-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true`
+// connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
 // port # from .env
 
 
