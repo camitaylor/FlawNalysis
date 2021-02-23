@@ -29,7 +29,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="#">Dashboard</a></li>
+          <li class="active"><a href="dashboard.html">Dashboard</a></li>
           <li><a href="ticketForm.html">Create Ticket</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -55,6 +55,8 @@
                       <th class="name">User</th>
                       <th class="details">Ticket Details</th>
                       <th class="Assigned">Assigned To</th>
+                      <th class="status">Status</th>
+                      <th class="priority">Priority</th>
                       <th class="date">Date</th>
                       <th class="editButton"></th>
                       <th class="editButton"></th>
@@ -69,7 +71,7 @@
       </div>
       <div id="popup1" class="overlay">
         <div class="popup">
-          <h2>Please Confirm Delete</h2>
+          <h2>Are you sure you want to delete?</h2>
           <div class="group">
             <a class="cancel" href="#"><i class="glyphicon glyphicon-remove"></i></a>
             <button class = "delete" onclick="deleteTicket()"><i class="glyphicon glyphicon-trash"></i></button>
