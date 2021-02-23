@@ -46,6 +46,7 @@ h3 {
 
 .video-container {
   position: absolute;
+  display:fixed;
   top: 0;
   left: 0;
   width: 100%;
