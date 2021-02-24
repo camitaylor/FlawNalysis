@@ -4,25 +4,16 @@ fetch('/tickets').then(res => {
     }
   })
   .then(respose => {
-<<<<<<< HEAD
       respose.forEach(data => {
         document.getElementById('tableBody').innerHTML += `<tr>
-=======
-    respose.forEach(data => {
-      document.getElementById('tableBody').innerHTML += `<tr>
->>>>>>> parent of 1a00995 (updated)
-        <td class = "name" >${data.name}</td>
-        <td class = "details">${data.ticketDetails}</td>
-        <td class = "Assigned">${data.assignedTo}</td>
-        <td class = "date">${data.requestedDate}</td>
-<<<<<<< HEAD
-        <td class = "editButton"><a href = "/updateTicket.html" value = ${data._id}><i class="glyphicon glyphicon-edit"></i></a></td>
-=======
-        <td>${data.status}</td>
-        <td class = "${data.priority}">${data.priority}</td>
-        <td class = "editButton"><button class ="edit" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i></buton></td>
-        <td class = "editButton"><button class = "remove" value = ${data._id}><i class="glyphicon glyphicon-trash"></button></a></td>
->>>>>>> parent of 1a00995 (updated)
+        <td class = "details col-5" >
+        <h3 class = "name">${data.name}</h3>
+        <p class = "note">${data.ticketDetails}</p>
+        <p class = "date">${data.requestedDate}</p></td>
+        <td class = "Assigned col-2">${data.assignedTo}</td>
+        <td class = " status col-2">${data.status}</td>
+        <td class = "${data.priority} col-2">${data.priority}</td>
+        <td class = "editButton col-1"><button class ="edit" title = "click to view details" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i></buton></td>
         </tr>`
       });
   })
@@ -60,12 +51,18 @@ function findClickedRowRemove(event) {
       element = element.parentNode;
   }
 }
-function deleteTicket(element){
-  _id = element.value;
-  console.log(_id)
-  url = `/tickets/ObjectId(${_id})`;
-  fetch(url).then(res => {
-    if(res.body.id){
-        return res.json();
-    }})
-  }
+function deleteTicket(){
+  id = sessionStorage.getItem('id');
+  url = `/tickets/${id}`;
+  fetch(url,{
+    method: 'delete'
+  }).then(res => {
+      return res.json();
+  })
+  .then(result =>{
+    console.log(result)
+    sessionStorage.removeItem('id')
+    window.location.href='http://localhost:3030/dashboard.html';
+})
+
+}

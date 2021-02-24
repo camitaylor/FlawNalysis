@@ -172,11 +172,21 @@
   }
 
   .High{
-    color:red !important;
+    color:rgb(175, 82, 82) !important;
   }
   .Low{
-    color:yellow !important;
+    color:rgb(211, 164, 102) !important;
   }
   .Normal{
-    color:green !important;
+    color:#80c2b6!important;
+  }
+
+  .name{
+    margin:0 !important;
+    padding:.1rem !important;
+    color:antiquewhite;
+  }
+  .note{
+    margin:auto;
+    color:rgb(202, 202, 202);
   }
