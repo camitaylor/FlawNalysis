@@ -4,13 +4,25 @@ fetch('/tickets').then(res => {
     }
   })
   .then(respose => {
+<<<<<<< HEAD
       respose.forEach(data => {
         document.getElementById('tableBody').innerHTML += `<tr>
+=======
+    respose.forEach(data => {
+      document.getElementById('tableBody').innerHTML += `<tr>
+>>>>>>> parent of 1a00995 (updated)
         <td class = "name" >${data.name}</td>
         <td class = "details">${data.ticketDetails}</td>
         <td class = "Assigned">${data.assignedTo}</td>
         <td class = "date">${data.requestedDate}</td>
+<<<<<<< HEAD
         <td class = "editButton"><a href = "/updateTicket.html" value = ${data._id}><i class="glyphicon glyphicon-edit"></i></a></td>
+=======
+        <td>${data.status}</td>
+        <td class = "${data.priority}">${data.priority}</td>
+        <td class = "editButton"><button class ="edit" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i></buton></td>
+        <td class = "editButton"><button class = "remove" value = ${data._id}><i class="glyphicon glyphicon-trash"></button></a></td>
+>>>>>>> parent of 1a00995 (updated)
         </tr>`
       });
   })
