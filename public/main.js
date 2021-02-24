@@ -1,11 +1,11 @@
 fetch('/tickets').then(res => {
-    if(res.ok){
-        return res.json();
-    }
-  })
+  if (res.ok) {
+    return res.json();
+  }
+})
   .then(respose => {
-      respose.forEach(data => {
-        document.getElementById('tableBody').innerHTML += `<tr>
+    respose.forEach(data => {
+      document.getElementById('tableBody').innerHTML += `<tr>
         <td class = "name" >${data.name}</td>
         <td class = "details">${data.ticketDetails}</td>
         <td class = "Assigned">${data.assignedTo}</td>
@@ -15,10 +15,11 @@ fetch('/tickets').then(res => {
         <td class = "editButton"><button class ="edit" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i></buton></td>
         <td class = "editButton"><button class = "remove" value = ${data._id}><i class="glyphicon glyphicon-trash"></button></a></td>
         </tr>`
-      });
+    });
   })
 
-// lestening to button clicked
+
+// listening to button clicked
 if (document.addEventListener) {
   document.addEventListener("click", findClickedRowRemove, false);
 }
@@ -36,31 +37,31 @@ function findClickedRowRemove(event) {
   // Climb up the document tree from the target of the event
   while (element) {
     // finds clicked Delete Button
-      if (element.nodeName === "BUTTON" && /remove/.test(element.className)) {
-        console.log(element.value)
-        sessionStorage.setItem("id",`${element.value}`);
-        window.location.href='#popup1'
-        break;
-      }
-      // finds clicked update button. 
-      else if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
-        console.log(element.value)
-        sessionStorage.setItem("id",`${element.value}`);
-        window.location.href='/updateTicket.html'
-        break;
-      }
-      element = element.parentNode;
+    if (element.nodeName === "BUTTON" && /remove/.test(element.className)) {
+      console.log(element.value)
+      sessionStorage.setItem("id", `${element.value}`);
+      window.location.href = '#popup1'
+      break;
+    }
+    // finds clicked update button. 
+    else if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
+      console.log(element.value)
+      sessionStorage.setItem("id", `${element.value}`);
+      window.location.href = '/updateTicket.html'
+      break;
+    }
+    element = element.parentNode;
   }
 }
 
 
-function deleteTicket(){
+function deleteTicket() {
   id = sessionStorage.getItem('id');
   url = `/tickets/${id}`;
-  fetch(url,{
+  fetch(url, {
     method: 'delete'
   }).then(res => {
-      return res.json();
+    return res.json();
   })
   .then(result =>{
     console.log(result)
