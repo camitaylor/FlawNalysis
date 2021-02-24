@@ -69,5 +69,8 @@ function deleteTicket() {
 
 }
 
+module.exports = function () {
+
+}
 
 
