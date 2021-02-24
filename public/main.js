@@ -4,16 +4,16 @@ fetch('/tickets').then(res => {
   }
 })
   .then(respose => {
-    respose.forEach(data => {
-      document.getElementById('tableBody').innerHTML += `<tr>
-        <td class = "name" >${data.name}</td>
-        <td class = "details">${data.ticketDetails}</td>
-        <td class = "Assigned">${data.assignedTo}</td>
-        <td class = "date">${data.requestedDate}</td>
-        <td>${data.status}</td>
-        <td class = "${data.priority}">${data.priority}</td>
-        <td class = "editButton"><button class ="edit" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i></buton></td>
-        <td class = "editButton"><button class = "remove" value = ${data._id}><i class="glyphicon glyphicon-trash"></button></a></td>
+      respose.forEach(data => {
+        document.getElementById('tableBody').innerHTML += `<tr>
+        <td class = "col-2" >${data.name}</td>
+        <td class = "col-3">${data.ticketDetails}</td>
+        <td class = "col-2">${data.assignedTo}</td>
+        <td class = "col-1">${data.requestedDate}</td>
+        <td class = "col-1">${data.status}</td>
+        <td class = "${data.priority} col-1">${data.priority}</td>
+        <td class = "editButton col-1"><button class ="edit" title = "click to Edit" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i> Edit</buton></td>
+        <td class = "editButton col-1"><button class = "remove" title = "click to delete" value = ${data._id}><i class="glyphicon glyphicon-trash"></i> Delete</button></td>
         </tr>`
     });
   })
