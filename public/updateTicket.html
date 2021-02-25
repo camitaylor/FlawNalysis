@@ -21,7 +21,7 @@
                 <div class="container bg-info">
                   <form id="contact-form" role="form" onsubmit="submitUpdate(); return false;">
                     <div class="controls bg-info">
-                      <h3 class = "text-center pb-3 mx-5" style="color:white;">Click on Blue Pencil Icon to edit a field. First and Last name cannot be editted</h3>
+                      <h3 class = "text-center pb-3 mx-5" style="color:white;">Ticket Details</h3>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
@@ -58,7 +58,6 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="form_email">Email *</label>
-                            <button class = "remove" type = "button" onclick="disableEnable(email)"><i class="glyphicon glyphicon-pencil"></i></button>
                             <input
                               id="form_email"
                               type="email"
@@ -76,7 +75,6 @@
                             <label for="form_need"
                               >Please specify your need *</label
                             >
-                            <button class = "remove" type = "button" onclick="disableEnable(selection)"><i class="glyphicon glyphicon-pencil"></i></button>
                             <select
                               id="form_need"
                               name="need"
@@ -98,7 +96,6 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="form_assigned">Assigned To</label>
-                            <button class = "remove" type = "button" onclick="disableEnable(assignedTO)"><i class="glyphicon glyphicon-pencil"></i></button>
                             <input
                               id="form_assigned"
                               type="name"
@@ -114,7 +111,6 @@
                             <label for="form_need"
                               >Status *</label
                             >
-                            <button class = "remove" type = "button" onclick="disableEnable(status)"><i class="glyphicon glyphicon-pencil"></i></button>
                             <select
                               id="form_status"
                               name="need"
@@ -136,7 +132,6 @@
                             <label for="form_need" 
                               >Priority*</label
                             >
-                            <button class = "remove" type = "button" onclick="disableEnable(priority)"><i class="glyphicon glyphicon-pencil"></i></button>
                             <select
                               id="form_priority"
                               name="need"
@@ -158,7 +153,6 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <label for="form_message">Ticket Details *</label>
-                            <button class = "remove" type = "button" onclick="disableEnable(textArea)"><i class="glyphicon glyphicon-pencil"></i></button>
                             <textarea
                               id="form_message"
                               name="message"

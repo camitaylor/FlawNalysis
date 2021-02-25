@@ -41,9 +41,13 @@
     </nav>
     <div class="container">
       <div class="ticketDisplay">
-        <div id="label-button">
-          <h2>Tickets</h2>
+        <div class="label-button d-none d-md-flex">
+          <h2 class = "heading">Tickets</h2>
           <a href="ticketForm.html" title = "click to create ticket" class="add btn btn-primary">Create Ticket</a>
+        </div>
+        <div class="label-button d-flex d-md-none">
+          <h2 class = "heading">Tickets</h2>
+          <a href="ticketForm.html" title = "click to create ticket"><span class=" add glyphicon glyphicon-plus-sign"></span></a>
         </div>
         <div id="tables">
           <div class="card" style="width: 25rem">

@@ -77,12 +77,18 @@ table tbody tr {
   display: table;
   table-layout: fixed;
 }
-#label-button {
-  display: flex;
+.label-button {
   justify-content: space-between !important;
   width: 100%;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding:2rem;
+  font-size: large!important;
+}
+.heading{
+  font-size: larger;
+}
+.add{
+  font-size: larger;
 }
 
 .btn{
