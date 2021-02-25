@@ -14,9 +14,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="btn.css">
 </head>
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse bg-dark">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -49,17 +50,27 @@
             <div class="card-body">
               <h5 class="card-title"></h5>
               <div class="table-container">
-                <table class="table table-dark table-striped">
+                <table class="table table-dark table-striped d-none d-md-block">
                   <thead>
                     <tr>
-                      <th class="details col-5">Ticket Details</th>
-                      <th class="Assigned col-2">Assigned To</th>
-                      <th class="date col-2">Status</th>
-                      <th class="date c0l-2">Priority</th>
-                      <th class="editButton c0l-1"></th>
+                      <th class="tableHeader col-5">Ticket Details</th>
+                      <th class="tableHeader col-2">Assigned To</th>
+                      <th class="tableHeader col-2">Status</th>
+                      <th class="tableHeader c0l-2">Priority</th>
+                      <th class="tableHeader c0l-1"></th>
                     </tr>
                   </thead>
                   <tbody id="tableBody"></tbody>
+                </table>
+                <table class="mobile table table-striped d-block d-md-none">
+                  <!-- <thead>
+                    <tr>
+                      <th class="tableHeader col-8"></th>
+                      <th class="tableHeader c0l-3"></th>
+                      <th class="tableHeader c0l-1"></th>
+                    </tr>
+                  </thead> -->
+                  <tbody id="tableBody2"></tbody>
                 </table>
               </div>
             </div>

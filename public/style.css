@@ -2,7 +2,7 @@
   color: white;
 }
 body {
-  background-color: #0f1616;
+  background-color: #242424;
 }
 h2 {
   text-align: center;
@@ -153,5 +153,6 @@ table tbody tr {
   background-color: transparent !important;
   border:none;
   height: 100%;
+  background:rgba(255, 255, 255, 0.281); 
 }
 

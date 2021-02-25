@@ -11,6 +11,8 @@
     background-color: black !important;
     height: 8rem !important;
     font-size: 1.5rem !important;
+    border-radius: 0;
+    margin:auto;
 }
 #logo{
     height: 5rem;
@@ -23,6 +25,7 @@
     margin-bottom: 0;
     list-style: none;
     text-decoration: none;
+    background-color: inherit !important;
 }
 @media (max-width: 768px){
     .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {

@@ -5,16 +5,28 @@ fetch('/tickets').then(res => {
   })
   .then(respose => {
       respose.forEach(data => {
+        document.getElementById('tableBody2').innerHTML += `<tr class = "card">
+        <td class="tableHeader col-11">
+          <h4 class = "name">${data.name}</h4>
+          <p class = "note">${data.ticketDetails}</p>
+          <p class = "assigned">Assigned to ${data.assignedTo}</p>
+          <p class = " status"> ${data.status}</p>
+          <p class = "date">Ticket Submitted on ${data.requestedDate}</p>
+        </td>
+        <td class= "editButton col-1"><button class ="edit" title = "click to view detail" value = ${data._id}><i class="glyphicon glyphicon-menu-right"></i></buton>
+        </td>
+        </tr>`;
         document.getElementById('tableBody').innerHTML += `<tr>
-        <td class = "details col-5" >
-        <h3 class = "name">${data.name}</h3>
-        <p class = "note">${data.ticketDetails}</p>
-        <p class = "date">${data.requestedDate}</p></td>
-        <td class = "Assigned col-2">${data.assignedTo}</td>
-        <td class = " status col-2">${data.status}</td>
-        <td class = "${data.priority} col-2">${data.priority}</td>
-        <td class = "editButton col-1"><button class ="edit" title = "click to view details" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i></buton></td>
-        </tr>`
+          <td class = "details col-5" >
+            <h4 class = "name">${data.name}</h4>
+            <p class = "note">${data.ticketDetails}</p>
+            <p class = "date">Ticket Submitted on ${data.requestedDate}</p>
+          </td>
+          <td class = "Assigned col-2">${data.assignedTo}</td>
+          <td class = " status col-2"> ${data.status}</td>
+          <td class = "${data.priority} col-1">${data.priority}</td>
+          <td class = "editButton col-2"><button class ="edit" title = "click to view detail" value = ${data._id}>View Detail <i class="glyphicon glyphicon-menu-right"></i></buton></td>
+        </tr> `
       });
   })
 
