@@ -35,6 +35,8 @@ const strategy = new Auth0Strategy(
   }
 );
 
+
+
 passport.use(strategy);
 
 passport.serializeUser(function (user, done) {
@@ -88,7 +90,8 @@ if (app.get('env') === 'production') {
 
   app.use(flash());
 
-
+  // auth router attaches /login, /logout, and /callback routes to the baseURL
+  app.use(auth(config));  
   app.use(function (req, res, next) {
     if (req && req.query && req.query.error) {
       req.flash('error', req.query.error);
@@ -120,7 +123,7 @@ if (app.get('env') === 'production') {
 
   // localhost
   app.listen(port, function () {
-    console.log(`listening on: http://localhost:${port}`)
+    console.log(`listening on: https://localhost:${port}`)
   })
 
   // Catch 404 and forward to error handler
@@ -154,7 +157,7 @@ if (app.get('env') === 'production') {
     });
   });
 
-  module.exports = app;
+
 
 
   app.get('/profile', requiresAuth(), (req, res) => {
@@ -164,11 +167,11 @@ if (app.get('env') === 'production') {
 
 
 
-  // auth router attaches /login, /logout, and /callback routes to the baseURL
-  app.use(auth(config));
+  
 
   // req.isAuthenticated is provided from the auth router
   app.get('/', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
   });
 
+  module.exports = app;
