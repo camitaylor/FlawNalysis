@@ -17,9 +17,6 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  /* margin: 2rem auto;
-  background-color: #262727;
-  text-align: center; */
 }
 .login-box h1 {
   /* float: left; */
@@ -51,32 +48,7 @@ h2 {
   float: left;
   margin: 0 10px;
 }
-.btn-primary {
-  background-color: #165558 !important;
-  border: 1px #5cc4b0 solid !important;
-  opacity: 0.7;
-}
-.btn:hover {
-  transform: scale(0.95);
-  background: #4b8f82 !important;
-  color: white;
-}
 
-.btn {
-  width: 100%;
-  background: #165558;
-  border: 2px solid #4b8f82;
-  color: white;
-  padding: 5px;
-  font-size: 10x;
-  cursor: pointer;
-  margin: 12px;
-}
-
-#logo {
-  height: 3.5rem;
-  width: auto;
-}
 #addTicket {
   font-size: 2rem;
 }
@@ -163,6 +135,8 @@ table tbody tr {
 /* Track */
 ::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: 10px;
+  background: #b1b1b1;
   border-radius: 10px;
 }
 
