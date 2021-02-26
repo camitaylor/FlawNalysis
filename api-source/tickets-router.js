@@ -6,7 +6,7 @@ const ObjectID = require("bson-objectid");
 // const ticket = require('../models/ticket');
 require('dotenv').config();
 // getting credential to connect to db
-username = process.env.USER
+username = process.env.USERNAME
 password = process.env.PASSWORD
 connectionString = `mongodb+srv://${username}:${password}@cluster0.d0ygw.mongodb.net/tickets?retryWrites=true&w=majority`
 // port # from .env
