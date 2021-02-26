@@ -21,7 +21,10 @@
                 <div class="container bg-info">
                   <form id="contact-form" role="form" onsubmit="submitUpdate(); return false;">
                     <div class="controls bg-info">
-                      <h3 class = "text-center pb-3 mx-5" style="color:white;">Ticket Details</h3>
+                      <div class="topRow">
+                        <h3 class = "text-center pb-3 mx-5" style="color:rgba(255, 255, 255, 0.74); width:100%;">Please Click on the Pencil Icon to Update Ticket</h3>
+                        <button class = "edit" type = "button" title = "click to edit"  onclick = "disableEnable()"><i class="glyphicon glyphicon-pencil" style = "font-size: 20px !important;"></i>edit</button>
+                      </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
@@ -62,12 +65,12 @@
                               id="form_email"
                               type="email"
                               name="email"
+                              title = "click on pencil to edit"
                               class="form-control"
                               placeholder="johnsmith@exapmle.com"
                               required="required"
                               data-error="Valid email is required."
-                              readonly="true"
-                              ondblclick="this.readOnly='';"
+                              disabled
                             />
                           </div>
                         </div>
@@ -79,11 +82,11 @@
                             <select
                               id="form_need"
                               name="need"
+                              title = "click on pencil to edit"
                               class="form-control"
                               required="required"
                               data-error="Please specify your need."                               
-                              readonly="true"
-                              ondblclick="this.readOnly='';">
+                              disabled>
                               <option value="" selected disabled>
                                 --Select Your Issue--
                               </option>
@@ -101,12 +104,12 @@
                             <label for="form_assigned">Assigned To</label>
                             <input
                               id="form_assigned"
+                              title = "click on pencil to edit"
                               type="name"
                               name="name"
                               class="form-control"
                               placeholder="Josh Wagner"
-                              readonly="true"
-                              ondblclick="this.readOnly='';"
+                              disabled
                             />
                           </div>
                         </div>
@@ -117,12 +120,12 @@
                             >
                             <select
                               id="form_status"
+                              title = "click on pencil to edit"
                               name="need"
                               class="form-control"
                               required="required"
                               data-error="Please specify your need."                               
-                              readonly="true"
-                              ondblclick="this.readOnly='';">
+                              disabled>
                               <option value="" selected disabled>
                                 --Select Status--
                               </option>
@@ -140,12 +143,12 @@
                             >
                             <select
                               id="form_priority"
+                              title = "click on pencil to edit"
                               name="need"
                               class="form-control"
                               required="required"
                               data-error="Please specify your need." 
-                              readonly="true"
-                              ondblclick="this.readOnly='';">
+                              disabled>
                               <option value="" selected disabled>
                                 --Select Priority--
                               </option>
@@ -163,20 +166,21 @@
                             <label for="form_message">Ticket Details *</label>
                             <textarea
                               id="form_message"
+                              title = "clickon pencil to edit"
                               name="message"
                               class="form-control"
                               placeholder="Write your message here."
                               rows="4"
                               required="required"
                               data-error="Please, leave us a message."
-                              readonly="true"
-                              ondblclick="this.readOnly='';"
+                              disabled
                             ></textarea>
                           </div>
                         </div>
                         <div class="col-md-12" id = "buttonGroup">
-                          <button class = "btn btn-primary" type = "button" onclick = "reload()">Cancel</button>
-                          <button class = "btn btn-primary" type = "submit">Submit Ticket</button>
+                          <button class = "btn btn-primary" id = "cancel" type = "button" onclick = "disableEnable()" style= "display:none;">Cancel</button>
+                          <button class = "btn btn-primary" id = "dashboard" type = "button" onclick = "reload()">View Dashboard</button>
+                          <button class = "btn btn-primary" id = "submit" type = "submit" style= "display:none;">Submit Update</button>
                         </div>
                         </div>
                       </div>
@@ -220,11 +224,31 @@ fetch(url).then(res => {
 })
 
 // to tuggle btw disable and unable to limit error
-function disableEnable(element){
+function disableEnable(){
+  elements = [email, assignedTO, status, selection, priority, textArea]
+  elements.forEach(element => {
     if(element.disabled)
         element.disabled = false;
     else
         element.disabled = true;
+  });
+  showHide()
+}
+
+function showHide(){
+   cancel = document.getElementById('cancel')
+   submit = document.getElementById('submit')
+   backToDashboard = document.getElementById('dashboard')
+   elements = [cancel, submit, backToDashboard]
+   elements.forEach(element =>{
+     if(element.style.display === "none"){
+      element.style.display = "block"
+     }
+     else{
+      element.style.display = "none"
+     }
+   })
+
 }
 
 function reload() {
@@ -248,7 +272,12 @@ function submitUpdate(){
     headers: { 'Content-Type': 'application/json' },
     body:JSON.stringify(data)
   }).then(res => res.json())
-  .then(result => console.log(result))
+  .then(result => {
+    console.log(result)
+    window.location.href = "http://localhost:3030/confirmation.html"
+    sessionStorage.setItem("message", "Your ticket was successfully updated.")
+  })
+
 }
 
 </script>

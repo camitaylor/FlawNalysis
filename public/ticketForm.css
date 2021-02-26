@@ -10,10 +10,11 @@ body {
 h1 {
   margin-bottom: 40px;
   color: blanchedalmond;
+  display:block;
 }
 
 label {
-  color: #ffff;
+  color: rgba(255, 255, 255, 0.74);
 }
 .bg-info{
   background-color:black !important;
@@ -45,7 +46,6 @@ select option{
 }
 .btn{
   margin:1rem auto !important;
-  display: block !important;
   width:10rem;
 }
 .card {
@@ -55,7 +55,16 @@ select option{
 }
 input, select, textarea{
   font-size: 14px !important;
-  background-color: rgb(187, 187, 187);
+  background-color:  #373b3e !important;
+  border-color: #707b83 !important;
+  color:rgb(175, 175, 175) !important;
+  cursor:text
+}
+.form-control[disabled], fieldset[disabled] .form-control {
+  cursor: text;
+  background-color:  #3b3b3b !important;
+  border-color: #3b3b3b !important;
+  color:rgb(175, 175, 175) !important;
 }
 @media (max-width: 768px) {
   .container {
@@ -67,4 +76,15 @@ input, select, textarea{
   border:none !important;
   color:#0d6efd;
   font-size: medium;
+}
+.edit{
+  background-color: transparent !important;
+  border:none !important;
+  color:#47787a;
+  font-size: larger !important;
+}
+.topRow{
+  text-align: center;
+  display:flex;
+  justify-content: space-between;
 }
