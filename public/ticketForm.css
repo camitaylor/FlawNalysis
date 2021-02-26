@@ -46,7 +46,6 @@ select option {
 }
 .btn {
   margin: 1rem auto !important;
-  display: block !important;
   width: 10rem;
 }
 .card {
@@ -83,6 +82,7 @@ input, select, textarea{
   border:none !important;
   color:#47787a;
   font-size: larger !important;
+  width:15%;
 }
 .topRow{
   text-align: center;
