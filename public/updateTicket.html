@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FlawNalysis</title>
+        <link rel="icon" href="img/logoOnly.png" type="image/x-icon" />
+        <link rel="stylesheet" href="btn.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="ticketForm.css">
+    </head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-7 mx-auto">
+            <div class="card my-auto mx-auto p-4 bg-info" id ="vertical-center">
+              <div class="card-body bg-info">
+                <div class="container bg-info">
+                  <form id="contact-form" role="form" onsubmit="submitUpdate(); return false;">
+                    <div class="controls bg-info">
+                      <div class="topRow">
+                        <h3 class = "text-center pb-3 mx-5" style="color:rgba(255, 255, 255, 0.74); width:100%;">Please Click on the Pencil Icon to Update Ticket</h3>
+                        <button class = "edit" type = "button" title = "click to edit"  onclick = "disableEnable()"><i class="glyphicon glyphicon-pencil" style = "font-size: 20px !important;"></i>edit</button>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_name">Firstname *</label>
+                            <input
+                              id="form_name"
+                              type="text"
+                              name="name"
+                              class="form-control"
+                              placeholder="John"
+                              required="required"
+                              data-error="Firstname is required."
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_lastname">Lastname *</label>
+                            <input
+                              id="form_lastname"
+                              type="text"
+                              name="surname"
+                              class="form-control"
+                              placeholder="Smith"
+                              required="required"
+                              data-error="Lastname is required."
+                              disabled
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_email">Email *</label>
+                            <input
+                              id="form_email"
+                              type="email"
+                              name="email"
+                              title = "click on pencil to edit"
+                              class="form-control"
+                              placeholder="johnsmith@exapmle.com"
+                              required="required"
+                              data-error="Valid email is required."
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_need"
+                              >Please specify your need *</label
+                            >
+                            <select
+                              id="form_need"
+                              name="need"
+                              title = "click on pencil to edit"
+                              class="form-control"
+                              required="required"
+                              data-error="Please specify your need."                               
+                              disabled>
+                              <option value="" selected disabled>
+                                --Select Your Issue--
+                              </option>
+                              <option>Email</option>
+                              <option>Phone</option>
+                              <option>Computer</option>
+                              <option>Other</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="form_assigned">Assigned To</label>
+                            <input
+                              id="form_assigned"
+                              title = "click on pencil to edit"
+                              type="name"
+                              name="name"
+                              class="form-control"
+                              placeholder="Josh Wagner"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="form_need"
+                              >Status *</label
+                            >
+                            <select
+                              id="form_status"
+                              title = "click on pencil to edit"
+                              name="need"
+                              class="form-control"
+                              required="required"
+                              data-error="Please specify your need."                               
+                              disabled>
+                              <option value="" selected disabled>
+                                --Select Status--
+                              </option>
+                              <option>Pending</option>
+                              <opt</option>
+                              <option>In Progress</option>
+                              <option>Progress</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="form_need" 
+                              >Priority*</label
+                            >
+                            <select
+                              id="form_priority"
+                              title = "click on pencil to edit"
+                              name="need"
+                              class="form-control"
+                              required="required"
+                              data-error="Please specify your need." 
+                              disabled>
+                              <option value="" selected disabled>
+                                --Select Priority--
+                              </option>
+                              <option>High</option>
+                              <opt</option>
+                              <option>Normal</option>
+                              <option>Low</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="form_message">Ticket Details *</label>
+                            <textarea
+                              id="form_message"
+                              title = "clickon pencil to edit"
+                              name="message"
+                              class="form-control"
+                              placeholder="Write your message here."
+                              rows="4"
+                              required="required"
+                              data-error="Please, leave us a message."
+                              disabled
+                            ></textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-12" id = "buttonGroup">
+                          <button class = "btn btn-primary" id = "cancel" type = "button" onclick = "disableEnable()" style= "display:none;">Cancel</button>
+                          <button class = "btn btn-primary" id = "dashboard" type = "button" onclick = "reload()">View Dashboard</button>
+                          <button class = "btn btn-primary" id = "submit" type = "submit" style= "display:none;">Submit Update</button>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- /.8 -->
+          </div>
+<script>
+let firstName = document.getElementById("form_name")
+let lastName = document.getElementById("form_lastname")
+let textArea = document.getElementById("form_message")
+let email = document.getElementById("form_email")
+let assignedTO = document.getElementById("form_assigned")
+let selection = document.getElementById("form_need")
+let priority = document.getElementById("form_priority")
+let status = document.getElementById("form_status")
+
+id = sessionStorage.getItem('id');
+// Getting Ticket details to view on the page
+url = `/tickets/${id}`;
+fetch(url).then(res => {
+    return res.json();
+})
+.then(result =>{
+    console.log(result.email)
+    let firstLastName = result.name.split(" ");
+    console.log(firstLastName);
+    firstName.value = firstLastName[0];
+    lastName.value = firstLastName[1];
+    textArea.value = result.ticketDetails;
+    email.value = result.email || "No email attached";
+    assignedTO.value = result.assignedTo|| "";
+    status.value = result.status|| "";
+    priority.value = result.priority|| "";
+    selection.value = result.type || "";
+
+
+})
+
+// to tuggle btw disable and unable to limit error
+function disableEnable(){
+  elements = [email, assignedTO, status, selection, priority, textArea]
+  elements.forEach(element => {
+    if(element.disabled)
+        element.disabled = false;
+    else
+        element.disabled = true;
+  });
+  showHide()
+}
+
+function showHide(){
+   cancel = document.getElementById('cancel')
+   submit = document.getElementById('submit')
+   backToDashboard = document.getElementById('dashboard')
+   elements = [cancel, submit, backToDashboard]
+   elements.forEach(element =>{
+     if(element.style.display === "none"){
+      element.style.display = "block"
+     }
+     else{
+      element.style.display = "none"
+     }
+   })
+
+}
+
+function reload() {
+    window.location = "/dashboard.html";
+}
+function submitUpdate(){
+  let data = {
+    name: `${firstName.value} ${lastName.value}`,
+    email: email.value,
+    type: selection.value,
+    assignedTo: assignedTO.value,
+    status: status.value,
+    priority: priority.value,
+    ticketDetails: textArea.value
+  }
+  console.log(data)
+  id = sessionStorage.getItem('id');
+  url = `/tickets/${id}`
+  fetch(url,{
+    method:"put",
+    headers: { 'Content-Type': 'application/json' },
+    body:JSON.stringify(data)
+  }).then(res => res.json())
+  .then(result => {
+    console.log(result)
+    window.location.href = "http://localhost:3030/confirmation.html"
+    sessionStorage.setItem("message", "Your ticket was successfully updated.")
+  })
+
+}
+
+</script>
+</body>
+</html>

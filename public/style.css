@@ -4,9 +4,6 @@
 body {
   background-color: #0f1616;
 }
-.img {
-  margin: 40px;
-}
 h2 {
   text-align: center;
 }
@@ -17,6 +14,9 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  /* margin: 2rem auto;
+  background-color: #262727;
+  text-align: center; */
 }
 .login-box h1 {
   /* float: left; */
@@ -49,8 +49,19 @@ h2 {
   margin: 0 10px;
 }
 
-#addTicket {
-  font-size: 2rem;
+.btn {
+  width: 100%;
+  background: none;
+  border: 2px solid #4b8f82;
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 12px;
+}
+#addTicket{
+font-size: 2rem;
+
 }
 .ticketDisplay {
   margin-top: 2rem;
@@ -101,21 +112,11 @@ table tbody tr {
   display: table;
   table-layout: fixed;
 }
-.name {
-  width: 15%;
-}
-.details {
-  width: 40%;
-}
-.Assigned {
-  width: 15%;
-}
-.date {
-  width: 10%;
-}
 .editButton {
   width: 5%;
+  line-height:100%;
 }
+
 #label-button {
   display: flex;
   justify-content: space-between !important;
@@ -134,12 +135,9 @@ table tbody tr {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 10px;
-  background: #b1b1b1;
-  border-radius: 10px;
+    background:transparent; 
+    border-radius: 10px;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(75, 75, 75);
@@ -148,59 +146,13 @@ table tbody tr {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(36, 35, 35);
+    background: rgb(36, 35, 35); 
 }
-.remove {
+
+.remove, .edit{
   background-color: transparent !important;
-  border: none;
-
-  background: rgb(36, 35, 35);
-}
-.navbar > .container,
-.navbar > .container-fluid,
-.navbar > .container-lg,
-.navbar > .container-md,
-.navbar > .container-sm,
-.navbar > .container-xl,
-.navbar > .container-xxl {
-  display: inline-block;
-  align-items: center;
-  justify-content: space-between;
-  background-color: black;
-}
-.navbar {
-  background-color: black !important;
+  border:none;
+  height: 100%;
+  background:rgba(255, 255, 255, 0.281); 
 }
 
-.navbar-nav {
-  display: inline-block;
-  flex-direction: column;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-.imgcontainer {
-  float: left;
-  width: 150px;
-  height: 150px;
-}
-@media (max-width: 768px) {
-  .navbar > .container,
-  .navbar > .container-fluid,
-  .navbar > .container-lg,
-  .navbar > .container-md,
-  .navbar > .container-sm,
-  .navbar > .container-xl,
-  .navbar > .container-xxl {
-    display: block;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-  }
-}

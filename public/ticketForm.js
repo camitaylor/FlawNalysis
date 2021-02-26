@@ -21,11 +21,11 @@ function submitForm() {
     }
     console.log(data)
     fetch('/tickets', {
-            method: 'POST',
-            redirect: 'follow',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        })
+        method: 'POST',
+        redirect: 'follow',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
         .then((res) => {
             window.location.href = "http://localhost:3030/confirmation.html"
 
