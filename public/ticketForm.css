@@ -55,6 +55,7 @@ select option{
 }
 input, select, textarea{
   font-size: 14px !important;
+  background-color: rgb(187, 187, 187);
 }
 @media (max-width: 768px) {
   .container {
