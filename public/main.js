@@ -6,7 +6,10 @@ fetch('/tickets').then(res => {
   .then(respose => {
       respose.forEach(data => {
         document.getElementById('tableBody2').innerHTML += `<tr class = "card">
-        <td class="tableHeader col-11">
+        <td class="col">
+        <span class = "${data.priority}-box"></span>
+        </td>
+        <td class="tableHeader col-10">
           <h4 class = "name">${data.name}</h4>
           <p class = "note">${data.ticketDetails}</p>
           <p class = "assigned">Assigned to ${data.assignedTo}</p>
@@ -46,15 +49,8 @@ function findClickedRowRemove(event) {
 
   // Climb up the document tree from the target of the event
   while (element) {
-    // finds clicked Delete Button
-      if (element.nodeName === "BUTTON" && /remove/.test(element.className)) {
-        console.log(element.value)
-        sessionStorage.setItem("id",`${element.value}`);
-        window.location.href='#popup1'
-        break;
-      }
       // finds clicked update button. 
-      else if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
+      if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
         console.log(element.value)
         sessionStorage.setItem("id",`${element.value}`);
         window.location.href='/updateTicket.html'
@@ -63,18 +59,4 @@ function findClickedRowRemove(event) {
       element = element.parentNode;
   }
 }
-function deleteTicket(){
-  id = sessionStorage.getItem('id');
-  url = `/tickets/${id}`;
-  fetch(url,{
-    method: 'delete'
-  }).then(res => {
-      return res.json();
-  })
-  .then(result =>{
-    console.log(result)
-    sessionStorage.removeItem('id')
-    window.location.href='http://localhost:3030/dashboard.html';
-})
 
-}

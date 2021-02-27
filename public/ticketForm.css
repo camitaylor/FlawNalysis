@@ -83,13 +83,10 @@ input, select, textarea{
   color:#47787a;
   width:15%;
   font-size: larger !important;
-<<<<<<< Updated upstream
   width:15%;
-=======
   align-items: center;
   list-style: 100%;
-  position:absolute;
->>>>>>> Stashed changes
+  position:relative;
 }
 .topRow{
   text-align: middle;

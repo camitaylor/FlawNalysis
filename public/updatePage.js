@@ -85,3 +85,18 @@ function submitUpdate(){
   })
 
 }
+
+function deleteTicket(){
+  id = sessionStorage.getItem('id');
+  url = `/tickets/${id}`;
+  fetch(url,{
+    method: 'delete'
+  }).then(res => {
+      return res.json();
+  })
+  .then(result =>{
+    sessionStorage.setItem("message", "Ticket was Successfylly Deleted")
+    window.location.href='http://localhost:3030/confirmation.html';
+})
+
+}
