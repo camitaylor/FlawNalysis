@@ -196,15 +196,12 @@ color:rgb(131, 131, 131);
 }
 
 #tableBody2 .col-1{
-  width:5%!important;
+  width:10%!important;
 }
 .card{
   width:100% !important;
   display:block !important;
   background: transparent !important;
-}
-.High-box.col-1{
-  width:4% !important;
 }
 
 body, html{
