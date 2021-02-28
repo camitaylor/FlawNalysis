@@ -30,12 +30,12 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li class="active"><a href="#">Dashboard</a></li>
           <li><a href="ticketForm.html">Create Ticket</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <li><li><%-loginStatus %></li></li>
         </ul>
 
       </div>
@@ -51,34 +51,22 @@
           <a href="ticketForm.html" title = "click to create ticket"><i class='fas fa-plus' style = "font-size: 25px;"></i></a>
         </div>
         <div id="tables">
-          <div class="card" style="width: 25rem">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <div class="table-container">
-                <table class="table table-dark table-striped d-none d-md-block">
-                  <thead>
-                    <tr>
-                      <th class="tableHeader col-5">Ticket Details</th>
-                      <th class="tableHeader col-2">Assigned To</th>
-                      <th class="tableHeader col-2">Status</th>
-                      <th class="tableHeader c0l-2">Priority</th>
-                      <th class="tableHeader c0l-1"></th>
-                    </tr>
-                  </thead>
-                  <tbody id="tableBody"></tbody>
-                </table>
-                <table class="mobile table table-striped d-block d-md-none">
-                  <!-- <thead>
-                    <tr>
-                      <th class="tableHeader col-8"></th>
-                      <th class="tableHeader c0l-3"></th>
-                      <th class="tableHeader c0l-1"></th>
-                    </tr>
-                  </thead> -->
-                  <tbody id="tableBody2"></tbody>
-                </table>
-              </div>
-            </div>
+          <div class="table-container">
+            <table class="table table-dark table-striped d-none d-md-block">
+              <thead>
+                <tr>
+                  <th class="tableHeader col-5">Ticket Details</th>
+                  <th class="tableHeader col-2">Assigned To</th>
+                  <th class="tableHeader col-2">Status</th>
+                  <th class="tableHeader c0l-2">Priority</th>
+                  <th class="tableHeader c0l-1"></th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+            <table class="mobile table table-striped d-block d-md-none">
+              <tbody id="tableBody2"></tbody>
+            </table>
           </div>
         </div>
       </div>

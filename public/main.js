@@ -6,7 +6,14 @@ fetch('/tickets').then(res => {
   .then(respose => {
       respose.forEach(data => {
         document.getElementById('tableBody2').innerHTML += `<tr class = "card">
+<<<<<<< Updated upstream
         <td class="tableHeader col-11">
+=======
+        <td class="col-1">
+        <span class = "${data.priority}-box"></span>
+        </td>
+        <td class="tableHeader col-12">
+>>>>>>> Stashed changes
           <h4 class = "name">${data.name}</h4>
           <p class = "note">${data.ticketDetails}</p>
           <p class = "assigned">Assigned to ${data.assignedTo}</p>
@@ -29,7 +36,10 @@ fetch('/tickets').then(res => {
         </tr> `
       });
   })
-
+fetch('/profile').then(res=> res.json()).then(data=>{
+  s_data= JSON.stringify(data)
+  sessionStorage.setItem("user",s_data) 
+})
 // lestening to button clicked
 if (document.addEventListener) {
   document.addEventListener("click", findClickedRowRemove, false);
@@ -57,7 +67,7 @@ function findClickedRowRemove(event) {
       else if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
         console.log(element.value)
         sessionStorage.setItem("id",`${element.value}`);
-        window.location.href='/updateTicket.html'
+        window.location.href='./updateTicket.html'
         break;
       }
       element = element.parentNode;

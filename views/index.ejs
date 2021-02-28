@@ -7,8 +7,16 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<<<<<<< Updated upstream:public/index.html
     <link rel="stylesheet" href="index.css"  />
     <link rel="stylesheet" href="navbar.css">
+=======
+    <link rel="icon" href="img/logoOnly.png" type="image/x-icon" />
+    <link rel="stylesheet" href="static/button.css">
+    <link rel="stylesheet" href="static/index.css"  />
+    <link rel="stylesheet" href="static/navbar.css">
+
+>>>>>>> Stashed changes:views/index.ejs
     <title>FlawNalysis</title>
   </head>
   <body>
@@ -23,20 +31,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>                        
               </button>
-              <a class="navbar-brand" href="#"><img id = "logo" src="img/logoLeft.png" alt="logo"></a>
+              <a class="navbar-brand" href="#"><img id = "logo" src="static/img/logoLeft.png" alt="logo"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="/static/dashboard.html">Dashboard</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><%-loginStatus %></li>
               </ul>
       
             </div>
           </nav>
-        <video src="img/bg.mov" autoplay muted loop></video>
+        <video src="static/img/bg.mov" autoplay muted loop></video>
       </div>
       <div class="content">
         <h1>FlawNalysis</h1>
@@ -47,7 +55,11 @@
           It will significantly reduce the amount of time and resources used.
           Thus, providing additional time and resources to be used in other,
           more beneficial, matters.
+<<<<<<< Updated upstream:public/index.html
         </h3>
+=======
+        </h2>
+>>>>>>> Stashed changes:views/index.ejs
         <a href="login.html" class="btn">Log in or Sign up</a>
       </div>
     </section>

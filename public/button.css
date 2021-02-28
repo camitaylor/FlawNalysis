@@ -1,0 +1,100 @@
+.button {
+  font: bold 20px Arial;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #cccccc;
+}
+/* confirmation button effects */
+.button-c {
+  text-decoration: none;
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 18px;
+  background: #165558;
+  color: #fff;
+  border: 1px #5cc4b0 solid;
+  border-radius: 5px;
+  margin-top: 75px;
+  opacity: 0.7;
+}
+/* confirmation button effect */
+.button-c:hover {
+  transform: scale(0.95);
+  background: #4b8f82;
+  color: white;
+}
+/* button attributes for index page */
+.btn a {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 18px;
+  background: #165558;
+  color: #fff;
+  border: 1px #5cc4b0 solid;
+  border-radius: 5px;
+  margin-top: 75px;
+  opacity: 0.7;
+}
+/* index button effect on mouse over */
+.btn a:hover {
+  transform: scale(0.95);
+  background: #4b8f82;
+  color: white;
+}
+.btn {
+  /* width: 100%; */
+  background: #165558;
+  border: 2px solid #4b8f82;
+  color: white;
+  padding: 5px;
+  font-size: 10x;
+  cursor: pointer;
+  margin: 12px;
+}
+
+.btn-primary {
+  background-color: #165558 !important;
+  border: 1px #5cc4b0 solid !important;
+  opacity: 0.7;
+}
+/* button effects on bootstapped buttons */
+.btn btn-primary {
+  font: bold 20px Arial;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #000000 !important;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #cccccc !important;
+  border-right: 1px solid #333333 !important;
+  border-bottom: 1px solid #333333 !important;
+  border-left: 1px solid #cccccc !important;
+}
+/* button hover effect */
+.btn:hover {
+  transform: scale(0.95);
+  background: #4b8f82;
+  color: white;
+}
+/* button effect for index page */
+.btn-i {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 18px;
+  background: #165558;
+  color: #fff;
+  border: 1px #5cc4b0 solid;
+  border-radius: 5px;
+  margin-top: 75px;
+  opacity: 0.7;
+}
+/* index page button effect on mouse */
+.btn-i:hover {
+  transform: scale(0.95);
+  background: #4b8f82;
+  color: white;
+}

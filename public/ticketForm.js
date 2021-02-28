@@ -1,5 +1,12 @@
+let user = JSON.parse(sessionStorage.getItem("user"))
+console.log(user)
+document.getElementById("form_name").value = user.firstName;
+document.getElementById("form_lastname").value = user.lastName;
+document.getElementById("form_email").value = user.email;
+
+
 function reload() {
-    window.location = "http://localhost:3030/dashboard.html";
+    window.location = "./dashboard.html";
 }
 
 function submitForm() {
@@ -27,7 +34,7 @@ function submitForm() {
         body: JSON.stringify(data)
     })
         .then((res) => {
-            window.location.href = "http://localhost:3030/confirmation.html"
+            window.location.href = "./confirmation.html"
 
 
             // try that...
