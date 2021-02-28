@@ -156,6 +156,7 @@ h3 {
   background: var(--primary-color);
   color: #fff;
   border: 1px #fff solid;
+  padding:2rem !important;
   border-radius: 5px;
   margin-top: 75px;
   opacity: 0.7;

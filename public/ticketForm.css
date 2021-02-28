@@ -82,6 +82,7 @@ input, select, textarea{
   border:none !important;
   color:#47787a;
   font-size: larger !important;
+  width:fit-content!important;
 }
 .topRow{
   text-align: center;
