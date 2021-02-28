@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 let firstName = document.getElementById("form_name")
 let lastName = document.getElementById("form_lastname")
 let textArea = document.getElementById("form_message")
@@ -102,4 +100,3 @@ function deleteTicket(){
 })
 
 }
->>>>>>> Stashed changes
