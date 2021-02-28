@@ -34,12 +34,8 @@ h3 {
 }
 .showcase {
   position: relative;
-  height: 100vh;
+  height: 90%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   padding: 0 20px;
   color: aliceblue;
 }
@@ -95,10 +91,11 @@ h3 {
 a {
   text-decoration: none;
   color: var(--primary-color);
+  display: block;
 }
 h1 {
   font-weight: 300;
-  font-size: 90px;
+  font-size: 70px;
   line-height: 1.2;
 }
 h3 {
@@ -107,17 +104,6 @@ h3 {
   line-height: 1.75;
   padding:5rem;
   max-width:985px;
-}
-.showcase {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-  color: aliceblue;
 }
 
 .video-container {
@@ -163,4 +149,13 @@ h3 {
 }
 .btn:hover {
   transform: scale(0.95);
+}
+.card{
+  text-align: center;
+  margin:auto;
+  display:block;
+}
+html,body{
+  height:100%;
+  overflow:hidden;
 }

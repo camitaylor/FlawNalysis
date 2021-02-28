@@ -14,44 +14,47 @@
   </head>
   <body>
     
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#"><img id = "logo" src="static/img/logoLeft.png" alt="logo"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/static/dashboard.html">Dashboard</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%-loginStatus %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <section class="showcase">
       <div class="video-container">
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                        
-              </button>
-              <a class="navbar-brand" href="#"><img id = "logo" src="static/img/logoLeft.png" alt="logo"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="/static/dashboard.html">Dashboard</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li><%-loginStatus %></li>
-              </ul>
-      
-            </div>
-          </nav>
         <video src="static/img/bg.mov" autoplay muted loop></video>
       </div>
-      <div class="content">
-        <h1>FlawNalysis</h1>
-        <h3>
+      <div class="card d-block" style = "background:transparent; max-width:1050px;">
+        <h1 class = "card-title">FlawNalysis</h1>
+        <h3 class = "card-body">
           Providing an organized and aesthetically pleasing experience that
           allows the user to navigate with ease and technicians to resolve
           requests in a timely manner.
           It will significantly reduce the amount of time and resources used.
           Thus, providing additional time and resources to be used in other,
           more beneficial, matters.
-        </h3>
-        <a href="/login" class="btn-primary btn" style = "width: fit-content !important;">Log in or Sign up</a>
+        </3>
+        <a href="/login" class="btn-primary btn d-block mx-auto my-5" style = "width: fit-content !important;">Log in or Sign up</a>
       </div>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 
 </html>

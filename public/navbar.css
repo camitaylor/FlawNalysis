@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: black;
+    z-index: 1000!important;
 }
 .navbar{
     background-color: black !important;
@@ -13,7 +14,7 @@
     font-size: 1.5rem !important;
     border-radius: 0;
     margin:auto;
-    z-index: 1000;
+    z-index: 1000!important;
 }
 #logo{
     height: 5rem;
@@ -27,6 +28,7 @@
     list-style: none;
     text-decoration: none;
     background-color: inherit !important;
+    z-index: 1000!important;
 }
 @media (max-width: 768px){
     .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {

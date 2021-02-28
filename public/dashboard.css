@@ -136,6 +136,24 @@ table tbody tr {
 .Normal{
   color:#5cc4b0 !important;
 }
+.High-box{
+  background-color:rgb(224, 96, 96) !important;
+  height:90%;
+  padding:10%;
+  border-radius: 25%;
+}
+.Low-box{
+  background-color:rgb(211, 164, 102) !important;
+  height:90%;
+  padding:10%;
+  border-radius: 25%;
+}
+.Normal-box{
+  background-color:#5cc4b0 !important;
+  height:90%;
+  padding:10%;
+  border-radius: 25%;
+}
 
 .name{
   margin:0 !important;
