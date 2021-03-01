@@ -1,0 +1,31 @@
+{"env": {
+    "USER":{ 
+        "describtion": "",
+        "value":"lokb"
+    },
+    "PASSWORD":{
+        "describtion": "",
+        "value" : "capstone2021"
+    },
+    "PORT":{
+        "describtion":"",
+        "value": 3030
+    },
+    "ISSUER_BASE_URL":{ 
+        "describtion": "",
+        "value":"https://dev-bwtwy56p.us.auth0.com"
+    },
+    "BASE_URL" : {
+        "describtion": "",
+        "value":"http://localhost:3030"
+    },
+   "CLIENT_ID" :{
+       "describtion": "",
+       "value":"ajvuSMsG3De2ARCGWxvuzgqdpEU2zhB1"
+    },
+    "SECRET" : {
+        "describtion": "",
+        "value":"1D7BnAisatiBU2m1A_AGhcKOQD29odexUD-N8K5-dx1-EUwkXTL-0uCmm_m3Aakt"
+    }
+}
+}
