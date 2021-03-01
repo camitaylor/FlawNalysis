@@ -29,7 +29,7 @@ fetch('/tickets').then(res => {
           <td class = " status col-2"> ${data.status}</td>
           <td class = "${data.priority} col-1">${data.priority}</td>
           <td class = "editButton col-2"><button class ="edit" title = "click to view detail" value = ${data._id}>View Detail <i class="glyphicon glyphicon-menu-right"></i></buton></td>
-        </tr> `
+        </tr>`
       });
   })
 fetch('/profile').then(res=> res.json()).then(data=>{
