@@ -12,11 +12,13 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="navbar.css">   
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="btn.css">
 </head>
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse bg-dark">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -29,130 +31,60 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="dashboard.html">Dashboard</a></li>
+          <li class="active"><a href="#">Dashboard</a></li>
           <li><a href="ticketForm.html">Create Ticket</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
+
       </div>
     </nav>
     <div class="container">
       <div class="ticketDisplay">
-        <div id="label-button">
-          <h2>Tickets</h2>
-          <a href="ticketForm.html" class="add btn btn-primary">Add Ticket</a>
+        <div class="label-button d-none d-md-flex">
+          <h2 class = "heading">Tickets</h2>
+          <a href="ticketForm.html" title = "click to create ticket" class="add btn btn-primary">Create Ticket</a>
+        </div>
+        <div class="label-button d-flex d-md-none">
+          <h2 class = "heading">Tickets</h2>
+          <a href="ticketForm.html" title = "click to create ticket"><i class='fas fa-plus' style = "font-size: 25px;"></i></a>
         </div>
         <div id="tables">
           <div class="card" style="width: 25rem">
             <div class="card-body">
               <h5 class="card-title"></h5>
-              
               <div class="table-container">
-                <table class="table table-dark table-striped">
+                <table class="table table-dark table-striped d-none d-md-block">
                   <thead>
                     <tr>
-                      <th class="name">User</th>
-                      <th class="details">Ticket Details</th>
-                      <th class="Assigned">Assigned To</th>
-                      <th class="status">Status</th>
-                      <th class="priority">Priority</th>
-                      <th class="date">Date</th>
-                      <th class="editButton"></th>
-                      <th class="editButton"></th>
+                      <th class="tableHeader col-5">Ticket Details</th>
+                      <th class="tableHeader col-2">Assigned To</th>
+                      <th class="tableHeader col-2">Status</th>
+                      <th class="tableHeader c0l-2">Priority</th>
+                      <th class="tableHeader c0l-1"></th>
                     </tr>
                   </thead>
                   <tbody id="tableBody"></tbody>
+                </table>
+                <table class="mobile table table-striped d-block d-md-none">
+                  <!-- <thead>
+                    <tr>
+                      <th class="tableHeader col-8"></th>
+                      <th class="tableHeader c0l-3"></th>
+                      <th class="tableHeader c0l-1"></th>
+                    </tr>
+                  </thead> -->
+                  <tbody id="tableBody2"></tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div id="popup1" class="overlay">
-        <div class="popup">
-          <h2>Are you sure you want to delete?</h2>
-          <div class="group">
-            <a class="cancel" href="#"><i class="glyphicon glyphicon-remove"></i></a>
-            <button class = "delete" onclick="deleteTicket()"><i class="glyphicon glyphicon-trash"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
     <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
-<style>
-
-.box {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 50ms;
-  visibility: hidden;
-  opacity: 0;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color:white;
-  padding: 3rem;
-  background: #000;
-  border:#4b8f82 1px solid;
-  border-radius: 5px;
-  width: 25rem;
-  transition: all 1s ease-in-out;
-}
-.delete{
-  background:none;
-  color:white;
-  border:none;
-
-}
-.group{
-  display:flex;
-  width:10rem;
-  justify-content: space-between;
-  margin:2rem auto 0 auto;
-}
-.popup h2 {
-  margin-top: 0;
-  color: #fff;
-  font-family: Tahoma, Arial, sans-serif;
-}
-
-.popup .content {
-  max-height: 25rem;
-  overflow: auto;
-}
-
-@media screen and (max-width: 700px) {
-  .box {
-    width: 70%;
-  }
-  .popup {
-    width: 70%;
-  }
-}

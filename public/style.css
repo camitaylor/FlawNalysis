@@ -112,21 +112,11 @@ table tbody tr {
   display: table;
   table-layout: fixed;
 }
-.name {
-  width: 15%;
-}
-.details {
-  width: 40%;
-}
-.Assigned {
-  width: 15%;
-}
-.date {
-  width: 10%;
-}
 .editButton {
   width: 5%;
+  line-height:100%;
 }
+
 #label-button {
   display: flex;
   justify-content: space-between !important;
@@ -162,4 +152,7 @@ table tbody tr {
 .remove, .edit{
   background-color: transparent !important;
   border:none;
+  height: 100%;
+  background:rgba(255, 255, 255, 0.281); 
 }
+

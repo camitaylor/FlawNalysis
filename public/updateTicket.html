@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>FlawNalysis</title>
         <link rel="icon" href="img/logoOnly.png" type="image/x-icon" />
+        <link rel="stylesheet" href="btn.css">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -20,11 +21,14 @@
                 <div class="container bg-info">
                   <form id="contact-form" role="form" onsubmit="submitUpdate(); return false;">
                     <div class="controls bg-info">
-                      <h3 class = "text-center pb-3 mx-5" style="color:white;">Double click on the field to edit. First and last name cannot be edited.</h3>
+                      <div class="topRow">
+                        <h3 class = "text-center pb-3 mx-5" style="color:rgba(255, 255, 255, 0.74); width:100%;">Please Click on the Pencil Icon to Update Ticket</h3>
+                        <button class = "editbutton edit" type = "button" title = "click to edit"  onclick = "disableEnable()"><i class="glyphicon glyphicon-pencil" style = "font-size: 20px !important;"></i>edit</button>
+                      </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="form_name">First Name *</label>
+                            <label for="form_name">Firstname *</label>
                             <input
                               id="form_name"
                               type="text"
@@ -39,7 +43,7 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="form_lastname">Last Name *</label>
+                            <label for="form_lastname">Lastname *</label>
                             <input
                               id="form_lastname"
                               type="text"
@@ -57,17 +61,16 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="form_email">Email *</label>
-                            <!--<button class = "remove" type = "button" onclick="disableEnable(email)"><i class="glyphicon glyphicon-pencil"></i></button>-->
                             <input
                               id="form_email"
                               type="email"
                               name="email"
+                              title = "click on pencil to edit"
                               class="form-control"
                               placeholder="johnsmith@exapmle.com"
                               required="required"
                               data-error="Valid email is required."
-                              readonly="true"
-                              ondblclick="this.readOnly='';"
+                              disabled
                             />
                           </div>
                         </div>
@@ -76,15 +79,14 @@
                             <label for="form_need"
                               >Please specify your need *</label
                             >
-                            <!--<button class = "remove" type = "button" onclick="disableEnable(selection)"><i class="glyphicon glyphicon-pencil"></i></button>-->
                             <select
                               id="form_need"
                               name="need"
+                              title = "click on pencil to edit"
                               class="form-control"
                               required="required"
-                              data-error="Please specify your need." 
-                              readonly="true"
-                              ondblclick="this.readOnly='';">
+                              data-error="Please specify your need."                               
+                              disabled>
                               <option value="" selected disabled>
                                 --Select Your Issue--
                               </option>
@@ -100,15 +102,14 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="form_assigned">Assigned To</label>
-                            <!--<button class = "remove" type = "button" onclick="disableEnable(assignedTO)"><i class="glyphicon glyphicon-pencil"></i></button>-->
                             <input
                               id="form_assigned"
+                              title = "click on pencil to edit"
                               type="name"
                               name="name"
                               class="form-control"
                               placeholder="Josh Wagner"
-                              readonly="true"
-                              ondblclick="this.readOnly='';"
+                              disabled
                             />
                           </div>
                         </div>
@@ -117,15 +118,14 @@
                             <label for="form_need"
                               >Status *</label
                             >
-                            <!--<button class = "remove" type = "button" onclick="disableEnable(status)"><i class="glyphicon glyphicon-pencil"></i></button>-->
                             <select
                               id="form_status"
+                              title = "click on pencil to edit"
                               name="need"
                               class="form-control"
                               required="required"
-                              data-error="Please specify your need." 
-                              readonly="true"
-                              ondblclick="this.readOnly='';">
+                              data-error="Please specify your need."                               
+                              disabled>
                               <option value="" selected disabled>
                                 --Select Status--
                               </option>
@@ -141,15 +141,14 @@
                             <label for="form_need" 
                               >Priority*</label
                             >
-                            <!--<button class = "remove" type = "button" onclick="disableEnable(priority)"><i class="glyphicon glyphicon-pencil"></i></button>-->
                             <select
                               id="form_priority"
+                              title = "click on pencil to edit"
                               name="need"
                               class="form-control"
                               required="required"
                               data-error="Please specify your need." 
-                              readonly="true"
-                              ondblclick="this.readOnly='';">
+                              disabled>
                               <option value="" selected disabled>
                                 --Select Priority--
                               </option>
@@ -165,24 +164,35 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <label for="form_message">Ticket Details *</label>
-                            <!--<button class = "remove" type = "button" onclick="disableEnable(textArea)"><i class="glyphicon glyphicon-pencil"></i></button>-->
                             <textarea
                               id="form_message"
+                              title = "clickon pencil to edit"
                               name="message"
                               class="form-control"
                               placeholder="Write your message here."
                               rows="4"
                               required="required"
                               data-error="Please, leave us a message."
-                              readonly="true"
-                              ondblclick="this.readOnly='';"
+                              disabled
                             ></textarea>
                           </div>
                         </div>
                         <div class="col-md-12" id = "buttonGroup">
-                          <button class = "btn btn-primary" type = "button" onclick = "reload()">Cancel</button>
-                          <button class = "btn btn-primary" type = "submit">Submit Ticket</button>
+                          <button class = "btn btn-primary" id = "cancel" type = "button" onclick = "disableEnable()" style= "display:none;">Cancel</button>
+                          <button class = "btn btn-primary" id = "dashboard" type = "button" onclick = "reload()">View Dashboard</button>
+                          <button class = "btn btn-primary" id = "submit" type = "submit" style= "display:none;">Submit Update</button>
+                          <button class = "editbutton" type = "button" title = "click to edit"  onclick = "window.location.href='#popup1'"><i class="glyphicon glyphicon-trash" style = "font-size: 20px !important; color:rgb(224, 96, 96) !important;"></i></button>
                         </div>
+                        <div id="popup1" class="overlay">
+                          <div class="popup">
+                            <h2 class = "text-center" >Do you want to delete this ticket?</h2>
+                            <div class="group">
+                              <a class="cancel" href="#"><i class="glyphicon glyphicon-remove"></i></a>
+                              <button class = "delete" type = "button" onclick="deleteTicket()"><i class="glyphicon glyphicon-trash" style = "color:rgb(224, 96, 96) !important;"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                         </div>
                       </div>
                     </div>
@@ -192,70 +202,7 @@
             </div>
             <!-- /.8 -->
           </div>
-<script>
-let firstName = document.getElementById("form_name")
-let lastName = document.getElementById("form_lastname")
-let textArea = document.getElementById("form_message")
-let email = document.getElementById("form_email")
-let assignedTO = document.getElementById("form_assigned")
-let selection = document.getElementById("form_need")
-let priority = document.getElementById("form_priority")
-let status = document.getElementById("form_status")
-
-id = sessionStorage.getItem('id');
-// Getting Ticket details to view on the page
-url = `/tickets/${id}`;
-fetch(url).then(res => {
-    return res.json();
-})
-.then(result =>{
-    console.log(result)
-    let firstLastName = result.name.split(" ")
-    console.log(firstLastName);
-    firstName.value = firstLastName[0];
-    lastName.value = firstLastName[1];
-    textArea.value = result.ticketDetails;
-    email.value = "No email attached"|| result.email;
-    assignedTO.value = result.type|| "";
-    status.value = status.type|| "";
-    priority.value = priority.type|| "";
-    selection.value = result.type || "";
-
-
-})
-
-// to tuggle btw disable and unable to limit error
-function disableEnable(element){
-    if(element.disabled)
-        element.disabled = false;
-    else
-        element.disabled = true;
-}
-
-function reload() {
-    window.location = "http://localhost:3030/dashboard.html";
-}
-function submitUpdate(){
-  data = {
-    name: `${firstName.value} ${lastName.value}`,
-    email: email.value,
-    type: selection.value,
-    assignedTO: assignedTO.value,
-    status: status.value,
-    priority: priority.value,
-    ticketDetails: textArea.value
-  }
-  console.log(data)
-  id = sessionStorage.getItem('id');
-  url = `/tickets/${id}`
-  fetch(url,{
-    method:"put",
-    body:JSON.stringify(data)
-  }).then(res => res.json)
-  .then(result => console.log(result))
-}
-
-
+<script src="updatePage.js">
 </script>
 </body>
 </html>

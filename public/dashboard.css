@@ -1,0 +1,212 @@
+* {
+  color: rgb(175, 175, 175);
+}
+body {
+  background-color: #242424;
+}
+
+.ticketDisplay {
+  margin-top: 2rem;
+  width: 100%;
+}
+#tables {
+  display: flex;
+  margin: auto;
+  justify-content: space-between !important;
+}
+
+.table-dark {
+  --bs-table-bg: #000000;
+  --bs-table-striped-bg: #212529;
+  --bs-table-striped-color: #fff;
+  --bs-table-active-bg: #373b3e;
+  --bs-table-active-color: #fff;
+  --bs-table-hover-bg: #323539;
+  --bs-table-hover-color: #fff;
+  color: #fff;
+  border-color: transparent !important;
+}
+.mobile tr{
+  border: transparent !important;
+}
+.mobile {
+  --bs-table-bg: #212529;
+  --bs-table-striped-bg: #000000;
+  --bs-table-striped-color: #fff;
+  --bs-table-active-bg: #373b3e;
+  --bs-table-active-color: #fff;
+  --bs-table-hover-bg: #323539;
+  --bs-table-border-color: transparent;
+  color: #fff;
+  border-color: #373b3e;
+}
+.table-container {
+  height: 70vh;
+}
+table {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+}
+table thead {
+  /* head takes the height it requires, 
+    and it's not scaled when table is resized */
+  flex: 0 0 auto;
+}
+table tbody {
+  display: block;
+  overflow-y: hidden;
+  height:100%
+}
+#tableBody2 {
+  display: block;
+  overflow-y: hidden;
+  height:100%
+}
+table tbody:hover, #tableBody2:hover{
+  overflow-y: scroll;
+}
+thead,
+tbody,
+tr {
+  width: 100%;
+}
+table thead,
+table tbody tr {
+  display: table;
+  table-layout: fixed;
+}
+.label-button {
+  justify-content: space-between !important;
+  width: 100%;
+  margin: 1rem auto;
+  padding:2rem;
+  font-size: large!important;
+}
+.heading{
+  font-size: larger;
+}
+.add{
+  font-size: larger;
+}
+
+.btn{
+    margin: auto 0 auto auto !important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background:transparent; 
+    border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #165558;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #165558; 
+}
+
+.remove, .edit{
+  background-color: transparent !important;
+  border:none;
+  height: 100%;
+  text-align: right;
+}
+.editButton{
+  text-align: right;
+}
+.editButton:hover{
+  color:white;
+}
+
+.High{
+  color:rgb(224, 96, 96) !important;
+}
+.Low{
+  color:rgb(211, 164, 102) !important;
+}
+.Normal{
+  color:#5cc4b0 !important;
+}
+.High-box{
+  background-color:rgb(224, 96, 96) !important;
+  height:90%;
+  padding:10%;
+  border-radius: 25%;
+}
+.Low-box{
+  background-color:rgb(211, 164, 102) !important;
+  height:90%;
+  padding:10%;
+  border-radius: 25%;
+}
+.Normal-box{
+  background-color:#5cc4b0 !important;
+  height:90%;
+  padding:10%;
+  border-radius: 25%;
+}
+
+.name{
+  margin:0 !important;
+  padding:.1rem !important;
+  color:rgb(219, 219, 219);
+  font-size:14px;
+}
+.note{
+  margin:auto;
+  color:rgba(202, 202, 202, 0.863);
+  margin-bottom: .5rem;
+}
+.date{
+padding-top: .5rem;
+font-size:smaller;
+color:rgb(131, 131, 131);
+}
+
+.card{
+  border-radius: 5px;
+  max-width:1500px;
+  background:transparent;
+  border:none;
+  box-shadow: none !important;
+}
+.container{
+  max-width: 1500px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    /* padding: 8px; */
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+    /* line-height: 100%; */
+}
+.mobile{
+  font-size: small !important;
+}
+
+#tableBody2 .col-1{
+  width:5%!important;
+}
+.card{
+  width:100% !important;
+  display:block !important;
+  background: transparent !important;
+}
+.col-1{
+  width:4% !important;
+}
+
+body, html{
+  width:100%;
+}

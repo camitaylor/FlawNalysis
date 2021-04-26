@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FlawNalysis</title>
+    <!-- page tab icon -->
+    <link rel="icon" href="img/logoOnly.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
     <!-- Latest compiled and minified CSS -->
@@ -24,6 +26,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="ticketForm.css" />
+    <link rel="stylesheet" href="btn.css">
     
   </head>
   <body>
@@ -96,7 +99,7 @@
                             type="email"
                             name="email"
                             class="form-control"
-                            placeholder="johnsmith@example.com"
+                            placeholder="johnsmith@exapmle.com"
                             required="required"
                             data-error="Valid email is required."
                           />
@@ -120,6 +123,26 @@
                             <option>Phone</option>
                             <option>Computer</option>
                             <option>Other</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_need"
+                            >Select Priority</label
+                          >
+                          <select
+                            id="form_priority"
+                            name="priority"
+                            class="form-control"
+                            required="required"
+                            data-error="Please specify your need.">
+                            <option value="" selected disabled>
+                              --Select Your Issue--
+                            </option>
+                            <option>Heigh</option>
+                            <option>Normal</option>
+                            <option>Low</option>
                           </select>
                         </div>
                       </div>

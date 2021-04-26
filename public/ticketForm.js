@@ -7,6 +7,7 @@ function submitForm() {
     let lastName = document.getElementById("form_lastname").value;
     let email = document.getElementById("form_email").value;
     let type = document.getElementById("form_need").value;
+    let priority = document.getElementById("form_priority").value;
     let ticketDetails = document.getElementById("form_message").value;
 
     let date = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
@@ -17,6 +18,8 @@ function submitForm() {
         type: type,
         ticketDetails: ticketDetails,
         assignedTo: 'pending',
+        status: 'pending',
+        priority: priority,
         requestedDate: date
     }
     console.log(data)

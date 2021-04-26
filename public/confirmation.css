@@ -5,29 +5,11 @@ body {
 }
 
 img {
-  width:22rem;
+  width: 22rem;
   display: center;
 }
 
 h1 {
   color: #4b8f82;
   margin-bottom: 75px;
-}
-
-.button {
-  font: bold 20px Arial;
-  text-decoration: none;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #cccccc;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #cccccc;
-}
-.container{
-  display:block;
-  position:relative;
-  margin-top:auto;
-  margin-bottom:auto;
 }

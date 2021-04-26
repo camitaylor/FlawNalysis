@@ -1,23 +1,39 @@
 fetch('/tickets').then(res => {
-  if (res.ok) {
-    return res.json();
-  }
-})
+    if(res.ok){
+        return res.json();
+    }
+  })
   .then(respose => {
-    respose.forEach(data => {
-      document.getElementById('tableBody').innerHTML += `<tr>
-        <td class = "name" >${data.name}</td>
-        <td class = "details">${data.ticketDetails}</td>
-        <td class = "Assigned">${data.assignedTo}</td>
-        <td class = "date">${data.requestedDate}</td>
-        <td class = "editButton"><button class = "edit" value = ${data._id}><i class="glyphicon glyphicon-pencil"></i> Edit</button></td>
-        <td class = "editButton"><button class = "remove" value = ${data._id}><i class="glyphicon glyphicon-trash"> Delete</button></a></td>
-        </tr>`
-    });
+      respose.forEach(data => {
+        document.getElementById('tableBody2').innerHTML += `<tr class = "card">
+        <td class="col">
+        <span class = "${data.priority}-box"></span>
+        </td>
+        <td class="tableHeader col-10">
+          <h4 class = "name">${data.name}</h4>
+          <p class = "note">${data.ticketDetails}</p>
+          <p class = "assigned">Assigned to ${data.assignedTo}</p>
+          <p class = " status"> ${data.status}</p>
+          <p class = "date">Ticket Submitted on ${data.requestedDate}</p>
+        </td>
+        <td class= "editButton col-1"><button class ="edit" title = "click to view detail" value = ${data._id}><i class="glyphicon glyphicon-menu-right"></i></buton>
+        </td>
+        </tr>`;
+        document.getElementById('tableBody').innerHTML += `<tr>
+          <td class = "details col-5" >
+            <h4 class = "name">${data.name}</h4>
+            <p class = "note">${data.ticketDetails}</p>
+            <p class = "date">Ticket Submitted on ${data.requestedDate}</p>
+          </td>
+          <td class = "Assigned col-2">${data.assignedTo}</td>
+          <td class = " status col-2"> ${data.status}</td>
+          <td class = "${data.priority} col-1">${data.priority}</td>
+          <td class = "editButton col-2"><button class ="edit" title = "click to view detail" value = ${data._id}>View Detail <i class="glyphicon glyphicon-menu-right"></i></buton></td>
+        </tr> `
+      });
   })
 
-
-// listening to button clicked
+// lestening to button clicked
 if (document.addEventListener) {
   document.addEventListener("click", findClickedRowRemove, false);
 }
@@ -25,30 +41,22 @@ else if (document.attachEvent) {
   document.attachEvent("onclick", findClickedRowRemove);
 }
 
-// TO identify the row where delete and edit buttons are clicked.
 function findClickedRowRemove(event) {
   event = event || window.event;
   event.target = event.target || event.srcElement;
 
-  let element = event.target;
+  var element = event.target;
 
   // Climb up the document tree from the target of the event
   while (element) {
-    // finds clicked Delete Button
-    if (element.nodeName === "BUTTON" && /remove/.test(element.className)) {
-      console.log(element.value)
-      sessionStorage.setItem("id", `${element.value}`);
-      window.location.href = '#popup1'
-      break;
-    }
-    // finds clicked update button. 
-    else if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
-      console.log(element.value)
-      sessionStorage.setItem("id", `${element.value}`);
-      window.location.href = '/updateTicket.html'
-      break;
-    }
-    element = element.parentNode;
+      // finds clicked update button. 
+      if (element.nodeName === "BUTTON" && /edit/.test(element.className)) {
+        console.log(element.value)
+        sessionStorage.setItem("id",`${element.value}`);
+        window.location.href='/updateTicket.html'
+        break;
+      }
+      element = element.parentNode;
   }
 }
 
@@ -72,5 +80,7 @@ function deleteTicket() {
 module.exports = function () {
 
 }
+
+
 
 
